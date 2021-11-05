@@ -1,0 +1,65 @@
+<div class="nav white lighten-4 top-nav mr-1" id="nav-header">
+    <div (click)="sideBar()" class="toggler"><i class="fas fa-bars"></i></div>
+    <div class="h-container" style="display:flex; justify-content: space-evenly;">
+        <div class="header-name">Dashboard</div>
+        <!-- <div class="header-search"><input type="text"></div> -->
+    </div>
+
+<!--     
+    <div class="h-container"  style="display: flex;">
+        <div class="date">29th march</div>
+        <div class="mgt-img"></div>
+    </div> -->
+
+
+
+
+    <div class="nav-item" dropdown>
+        <a dropdownToggle mdbWavesEffect class="nav-link active" mdbWavesEffect>
+            Hi, user</a> 
+    </div>
+    
+</div>
+
+
+<div class="sidebar">
+    <div>
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="logo">
+            <!-- <a class="navbar-brand" href="#" id="logo">KP <span>Initiatives</span></a> -->
+        </div>
+        <div class="mt-5">
+            <div mat-list-item [routerLink]="['/Dashboard/home']" routerLinkActive="is-active" (click)="removeSideBar()" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-tachometer-alt"></i>
+                <a style="text-decoration: none; color:#fff; line-height: 1; font-size: 14px;cursor:pointer">Dashboard</a>
+            </div>
+            <div mat-list-item [routerLink]="['./transactions']" (click)="removeSideBar()" routerLinkActive="is-active"  style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-people-arrows"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Transactions</a>
+            </div>
+    
+            <div mat-list-item [routerLink]="['/Dashboard/sales-report']" (click)="removeSideBar()" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="far fa-clipboard"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Sales Report</a>
+            </div>
+    
+            <div  [routerLink]="['/Dashboard/payment-report']" (click)="removeSideBar()" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-money-bill-wave"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Payment Report</a>
+            </div>
+            <div  [routerLink]="['/Dashboard/stocks']" (click)="removeSideBar()" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Stocks (FP)</a>
+            </div>
+    
+            <div  [routerLink]="['/Dashboard/return']" (click)="removeSideBar()" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Returns</a>
+            </div>
+            <div  [routerLink]="['']" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-sign-out-alt"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>

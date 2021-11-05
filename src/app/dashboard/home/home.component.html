@@ -1,0 +1,126 @@
+<div class="single-container">
+    <div class="row" style="justify-content: center; margin-top:4%">
+        <div class="col-sm-3"  style="cursor:pointer">
+            <div class="content-container">
+                <div style="display: flex; justify-content: space-between !important;">
+                    <div>
+                        <div style=" font-size:25px; font-weight:600"># 0.00</div>
+                        <div class="pt-2" style="color:#B5861E; font-size:14px">Total Sales Today</div>
+                    </div>
+                    <div style="border-radius: 5px;"><i style="font-size: 25px;" class="far fa-money-bill-alt"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3" style="cursor:pointer">
+            <div class="content-container">
+                <div style="display: flex; justify-content: space-between !important;">
+                    <div>
+                        <div style=" font-size:25px; font-weight:600">65</div>
+                        <div class="pt-2" style="color:#B5861E; font-size:14px">Total Customers</div>
+                    </div>
+                    <div style=" border-radius: 5px;"><i style="font-size: 25px;" class="fas fa-users"></i></div>
+                </div>
+            </div>
+        </div>
+        <div style="cursor:pointer" class="col-sm-3">
+            <div class="content-container">
+                <div style="display: flex; justify-content: space-between !important;">
+                    <div>
+                        <div style=" font-size:25px; font-weight:600">3255</div>
+                        <div class="pt-2" style="color:#B5861E; font-size:14px">Items in Stock</div>
+                    </div>
+                    <div style=" border-radius: 5px;"><i style="font-size: 25px;"  class="fas fa-cubes"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"  style="cursor:pointer">
+            <div class="content-container">
+                <div style="display: flex; justify-content: space-between !important;">
+                    <div>
+                        <div style=" font-size:25px; font-weight:600">50</div>
+                        <div class="pt-2" style="color:#B5861E; font-size:14px">Any other Content</div>
+                    </div>
+                    <div style=" border-radius: 5px;"><i style="font-size: 25px;"  class="fas fa-lightbulb"></i></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="transactions">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                      Daily Transactions
+                    </div>
+                    <div class="card-body">
+                        <p>No transctions yet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                      Transactions by Days
+                    </div>
+                    <div class="card-body">
+                     <p>No transactions yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="transactions">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                      Transactions by Months
+                    </div>
+                    <div class="card-body">
+                        <p>No transctions yet.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                      Transactions by years
+                    </div>
+                    <div class="card-body">
+                     <p>No transactions yet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+    <div class="title-history" style="font-size: 20px; padding:20px 0px">Transaction History</div>
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #ea166b; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>Transaction Type</td>    
+                                        <td>Amount</td>
+                                        <td>Network</td>
+                                        <td>Date</td>    
+                                         
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let Member of Members | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{Member.transaction}}</td>
+                                        <td>{{Member.amount}}</td>
+                                        <td>{{Member.network}}</td>
+                                        <td>{{Member.date}}</td>
+                                    </tr>
+                                </tbody>
+                                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </table>
+                        </div>
+            </div>
+        </div> 
+    </div> -->
