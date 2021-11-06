@@ -1,1 +1,69 @@
-<p>stocks works!</p>
+<div class="content-container">
+    <div class="card">
+        <h5 class="card-header">Products</h5>
+        <div class="card-body">
+        <div class="Action-btn">
+            <div>
+                <button class="new_size">Add New Pack Size</button>
+                <button class="add_product">Add Product Name</button>
+            </div>
+        </div>
+        <div class="operations">
+            <div>
+                <button class="editBtn excel">excel</button>
+                <button class="editBtn">print</button>
+            </div>
+            <div>
+                <input id="filter" placeholder="search" type="text"/>
+            </div>
+        </div>
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>Product</td>    
+                                        <td>pack size</td>
+                                        <td>Cost of Production</td>
+                                        <td>Selling price</td>  
+                                        <td>Total qty</td>    
+                                        <td>Qty_out</td>
+                                        <td>Qty_left</td>
+                                        <td>New_qty</td>   
+                                        <td>
+                                            Action
+                                        </td>    
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let Transaction of Transactions | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{Transaction.product}}</td>
+                                        <td>{{Transaction.pack_size}}</td>
+                                        <td>{{Transaction.cost_of_production}}</td>
+                                        <td>{{Transaction.selling_price}}</td>
+                                        <td>{{Transaction.total_qty}}</td>
+                                        <td>{{Transaction.Qty_out}}</td>
+                                        <td>{{Transaction.Qty_left}}</td>
+                                        <td>{{Transaction.new_qty}}</td>
+                                        <td class="double-btn">
+                                            <div>
+                                                <button class="editBtn">edit</button>
+                                            </div>
+                                            <div>
+                                                <button  class="btn-2">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+        </div>
+</div>
+</div>
