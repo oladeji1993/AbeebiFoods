@@ -4,9 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
-// import { Ng2OrderModule } from 'ng2-order-pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
-
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './home/home.component';
@@ -17,6 +15,8 @@ import { SalesReportComponent } from './sales-report/sales-report.component';
 import { PaymentReportsComponent } from './payment-reports/payment-reports.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { ReturnsComponent } from './returns/returns.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +29,8 @@ import { ReturnsComponent } from './returns/returns.component';
     SalesReportComponent,
     PaymentReportsComponent,
     StocksComponent,
-    ReturnsComponent
+    ReturnsComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +38,8 @@ import { ReturnsComponent } from './returns/returns.component';
     HttpClientModule,
     MatSidenavModule,
     MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
     // Ng2OrderModule, 
     MatPaginatorModule,
     NgxPaginationModule

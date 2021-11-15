@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from 'src/app/dashboard/home/home.component';
 import { DashboardComponent } from './dashboard.component';
 import { PaymentReportsComponent } from './payment-reports/payment-reports.component';
+import { RegisterComponent } from './../dashboard/register/register.component';
 import { ReturnsComponent } from './returns/returns.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 import { StocksComponent } from './stocks/stocks.component';
@@ -25,6 +26,10 @@ const routes: Routes = [
       {
         path: 'transactions',
         component: TransactionComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
       },
       {
         path: 'sales-report',
