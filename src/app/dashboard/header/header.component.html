@@ -51,6 +51,11 @@
                 <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
                 <a style="text-decoration: none; color:#fff; font-size: 14px;">Stocks (FP)</a>
             </div>
+
+            <div  [routerLink]="['/Dashboard/customers']" (click)="removeSideBar()" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Customers</a>
+            </div>
     
             <div  [routerLink]="['/Dashboard/return']" (click)="removeSideBar()" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
                 <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>

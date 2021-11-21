@@ -50,10 +50,10 @@
                                         <td>{{product.newqty}}</td>
                                         <td class="double-btn">
                                             <div>
-                                                <button class="editBtn">edit</button>
+                                                <button class="editBtn" (click)="editProduct(product)">edit</button>
                                             </div>
                                             <div>
-                                                <button  class="btn-2">Delete</button>
+                                                <button  class="btn-2" (click)="deletePackSize(product.id)">Delete</button>
                                             </div>
                                         </td>
                                     </tr>

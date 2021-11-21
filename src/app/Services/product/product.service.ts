@@ -26,4 +26,12 @@ export class ProductService {
   getPackSize(){
     return this.http.get(`${this._productUrl}/createPacksize`);
   }
+
+  updatePackSize(data:any){
+    return this.http.patch(`${this._productUrl}/createPacksize`, data);
+  }
+
+  deletePackSize(id:any){
+    return this.http.delete(`${this._productUrl}/createPacksize/`+id);
+  }
 }

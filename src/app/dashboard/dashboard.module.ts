@@ -18,6 +18,7 @@ import { ReturnsComponent } from './returns/returns.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CustomersComponent } from './customers/customers.component';
 
 
 
@@ -32,7 +33,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     PaymentReportsComponent,
     StocksComponent,
     ReturnsComponent,
-    RegisterComponent
+    RegisterComponent,
+    CustomersComponent
   ],
   imports: [
     CommonModule,

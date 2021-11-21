@@ -12,18 +12,22 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './Services/auth/interceptor.interceptor';
 import { AddProductComponent } from './shared/modal/add-product/add-product.component';
 import { AddPackSizeComponent } from './shared/modal/add-pack-size/add-pack-size.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CustomerComponent } from './shared/modal/customer/customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     AddProductComponent,
-    AddPackSizeComponent
+    AddPackSizeComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    MatDialogModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

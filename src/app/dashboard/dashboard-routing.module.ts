@@ -8,6 +8,7 @@ import { ReturnsComponent } from './returns/returns.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { CustomersComponent } from './customers/customers.component';
 
 const routes: Routes = [
   { 
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'return',
         component: ReturnsComponent
+      },
+      {
+        path: 'customers',
+        component: CustomersComponent
       },
     ]
   }]
