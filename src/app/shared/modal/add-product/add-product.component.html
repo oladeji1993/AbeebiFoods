@@ -1,0 +1,32 @@
+<div mat-dialog-title class="title">
+    <div class="header">Add New Product</div>
+    <div class="dismiss" (click)="closeModal()">Close</div>
+</div>
+
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-body">
+                <form [formGroup]="productForm" (ngSubmit)="addProduct()">
+                    <label>Product Name</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" formControlName="productname" placeholder="Product Name" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('productname')?.invalid}">
+                    <div *ngIf="submitted && productForm.get('productname')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="productForm.get('productname')?.hasError('required')">Product Name is required</div>
+                    </div>
+                    </div>
+                    <div class="pay-btn">
+                        <button type="submit" class="btn btn-success">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Product Names</h3>
+            <ul *ngFor="let product of allProducts">
+                <li>{{product.productname}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

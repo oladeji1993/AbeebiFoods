@@ -4,8 +4,8 @@
         <div class="card-body">
         <div class="Action-btn">
             <div>
-                <button class="new_size">Add New Pack Size</button>
-                <button class="add_product">Add Product Name</button>
+                <button class="new_size" (click)="addProductSize()">Add New Pack Size</button>
+                <button class="add_product" (click)="addProduct()">Add Product Name</button>
             </div>
         </div>
         <div class="operations">
@@ -39,15 +39,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let Transaction of Transactions | paginate : {itemsPerPage:8, currentPage:p} index as i">
-                                        <td>{{Transaction.product}}</td>
-                                        <td>{{Transaction.pack_size}}</td>
-                                        <td>{{Transaction.cost_of_production}}</td>
-                                        <td>{{Transaction.selling_price}}</td>
-                                        <td>{{Transaction.total_qty}}</td>
-                                        <td>{{Transaction.Qty_out}}</td>
-                                        <td>{{Transaction.Qty_left}}</td>
-                                        <td>{{Transaction.new_qty}}</td>
+                                    <tr *ngFor="let product of allProductDetails | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{product.productname}}</td>
+                                        <td>{{product.packsize}}</td>
+                                        <td>{{product.costofproduction}}</td>
+                                        <td>{{product.sellingprice}}</td>
+                                        <td>{{product.quantity}}</td>
+                                        <td>{{product.qtyout}}</td>
+                                        <td>{{product.quantity - product.qtyout}}</td>
+                                        <td>{{product.newqty}}</td>
                                         <td class="double-btn">
                                             <div>
                                                 <button class="editBtn">edit</button>

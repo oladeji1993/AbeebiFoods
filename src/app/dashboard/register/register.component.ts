@@ -46,7 +46,6 @@ export class RegisterComponent implements OnInit {
 
   login(){
     this.router.navigate(["/home/login"])
-
   }
   
   registerUser(){
@@ -64,6 +63,10 @@ export class RegisterComponent implements OnInit {
         password
       }
       this.authService.registerUser(data).subscribe((resp:any) =>{
+        if(resp.status === 401){
+          this.alert.showError(resp.message, 'Error');
+          return
+        }
         this.alert.showSuccess(resp.message, 'Success');
         this.registerForm.reset();
         console.log(resp)
@@ -74,7 +77,6 @@ export class RegisterComponent implements OnInit {
   getRoles(){
     this.authService.getRole().subscribe((response:any) =>{
       this.allRoles = response.data
-      // console.log(response.data)
     })
   }
 

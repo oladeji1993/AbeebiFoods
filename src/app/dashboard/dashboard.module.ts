@@ -17,6 +17,8 @@ import { StocksComponent } from './stocks/stocks.component';
 import { ReturnsComponent } from './returns/returns.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -40,8 +42,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
-    // Ng2OrderModule, 
-    MatPaginatorModule,
+    MatDialogModule,
+    HttpClientModule,
     NgxPaginationModule
   ]
 })

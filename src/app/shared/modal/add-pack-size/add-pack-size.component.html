@@ -1,0 +1,59 @@
+<div mat-dialog-title class="title">
+    <div class="header">Add Pack Size</div>
+    <div class="dismiss" (click)="closeModal()">Close</div>
+</div>
+
+<div>
+    <form [formGroup]="productForm" (ngSubmit)="addProductSize()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-body">
+                    <label>Product Name</label>
+                    <select class="form-select" aria-label="Default select example" formControlName="productname">
+                        <option selected>Select Product</option>
+                        <option *ngFor="let product of allProducts"  [value]="product.productname">{{product.productname}}</option>
+                    </select>
+
+                    <label class="mt-3">Cost of Production</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="costofproduction" placeholder="Cost of Production" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('costofproduction')?.invalid}">
+                        <div *ngIf="submitted && productForm.get('costofproduction')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="productForm.get('costofproduction')?.hasError('required')">cost of production is required</div>
+                        </div>
+                    </div>
+
+
+                    <label class="mt-3">Selling Price</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="sellingprice" placeholder="Selling Price" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('sellingprice')?.invalid}">
+                        <div *ngIf="submitted && productForm.get('sellingprice')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="productForm.get('sellingprice')?.hasError('required')">Selling Price is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="mt-3">Pack Size/SKU</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="packsize" placeholder="Product Name" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('packsize')?.invalid}">
+                    <div *ngIf="submitted && productForm.get('packsize')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="productForm.get('packsize')?.hasError('required')">Pack Size is required</div>
+                    </div>
+                </div>
+
+
+                <label class="mt-3">Quantity</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="quantity" placeholder="Product Quantity" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('quantity')?.invalid}">
+                    <div *ngIf="submitted && productForm.get('quantity')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="productForm.get('quantity')?.hasError('required')">Quantity is required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pay-btn">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+</div>

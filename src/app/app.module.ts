@@ -9,11 +9,16 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptorProvider } from './Services/auth/interceptor.interceptor';
+import { AddProductComponent } from './shared/modal/add-product/add-product.component';
+import { AddPackSizeComponent } from './shared/modal/add-pack-size/add-pack-size.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddProductComponent,
+    AddPackSizeComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
   providers: [
     FormsModule,
     ReactiveFormsModule,
+    AuthInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })
