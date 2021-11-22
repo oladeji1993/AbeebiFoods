@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from 'src/app/Services/alert/alert.service';
+import { CustomerService } from 'src/app/Services/customer/customer.service';
 import { ProductService } from 'src/app/Services/product/product.service';
 
 @Component({
@@ -15,12 +16,14 @@ export class CustomerComponent implements OnInit {
   title!: string;
   customerForm!: FormGroup;
   public submitted = false;
+  allCustomers: any
 
 
   constructor(
     private product: ProductService,
     public fb: FormBuilder,
     private alert: AlertService,
+    private customerService: CustomerService,
     public dialogRef: MatDialogRef<CustomerComponent>,
 
   ) { }
@@ -36,9 +39,11 @@ export class CustomerComponent implements OnInit {
       customertype: ['', Validators.compose([Validators.required])],
       totalamount: ['', Validators.compose([Validators.required])],
       totalpaid: ['', Validators.compose([Validators.required])],
-
-
     })
+
+    if(this.data){
+      this.customerForm.patchValue(this.data);
+    }
   }
 
   addCustomer(){
@@ -46,9 +51,56 @@ export class CustomerComponent implements OnInit {
     if(this.customerForm.invalid){
       return;
     }else{
-      console.log(this.customerForm.value)
+      if(this.data){
+        const { firstname, email, phone, state, lastname, address, customertype, totalamount, totalpaid, id} = this.customerForm.value
+        const data = {
+          firstname, 
+          email, 
+          phone, 
+          state, 
+          lastname, 
+          address, 
+          customertype, 
+          totalamount,
+          totalpaid, 
+          id: this.data.id
+        }
+        console.log(data)
+        this.customerService.updateCustomer(data)
+        .subscribe((result:any)=>{
+          if(result.status === 200){
+            this.alert.showSuccess(result.message, "success")
+            this.closeModal(true);
+            return
+          }else{
+            this.alert.showError(result.message, "Error")
+          }
+        }, err =>{
+          this.alert.showError(err, "Error")
+        })
+      }else{
+        this.customerService.addCustomer(this.customerForm.value)
+        .subscribe((response:any) =>{
+          if(response.status === 200){
+            this.alert.showSuccess(response.message, "success")
+            this.closeModal(true);
+            return
+          }else{
+            this.alert.showError(response.message, "Error")
+          }
+        }, err =>{
+          this.alert.showError(err, "Error")
+        })
+      }
     }
   }
+
+  get formControl() {
+    return this.customerForm.controls;
+  }
+
+ 
+
 
   states = [
     {id:"1", name: "Osun", value: "os"},
@@ -62,8 +114,8 @@ export class CustomerComponent implements OnInit {
     {id:"3", name: "Distributors", value: "distributors"}
   ]
 
-  closeModal() {
-    this.dialogRef.close();
+  closeModal(val?:boolean) {
+    this.dialogRef.close({ data: val });
   }
 
 }

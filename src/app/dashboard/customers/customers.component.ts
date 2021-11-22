@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertService } from 'src/app/Services/alert/alert.service';
+import { CustomerService } from 'src/app/Services/customer/customer.service';
 import { ModalService } from 'src/app/Services/modalServices/modal.service';
 
 @Component({
@@ -8,25 +10,54 @@ import { ModalService } from 'src/app/Services/modalServices/modal.service';
 })
 export class CustomersComponent implements OnInit {
   p: number = 1;
-  data: any
+  data: any;
+  allCustomers: any
 
   constructor(
-    private modalService: ModalService
+    private modalService: ModalService,
+    private customerService: CustomerService,
+    private alert: AlertService
   ) { }
 
   ngOnInit(): void {
+    this.getAllCustomers()
   }
-
-  Transactions = [
-    {name: "ola", phone: "08165552545", address: "Shomolu", date: "20/10/2021", amount: "300,000", payment:"pos"},
-    {name: "seun", phone: "08165552545", Adress: "Yaba", date: "10/5/2021", amount: "500,000", payment:"cash"},
-    {name: "Dayo", phone: "081545151545", Adress: "Ikeja", date: "5/5/2021", amount: "150,000", payment:"transfer"}
-  ]
 
   addCustomers(){
     const title = "Add Customer"
     this.modalService.customer(title).subscribe((resp:any)=>{
-      console.log(resp)
+      if(resp && resp.data) {
+        this.getAllCustomers()
+      }
+    })
+  }
+
+  getAllCustomers(){
+    this.customerService.getCustomers().subscribe((response:any) => {
+      console.log(response.data)
+      this.allCustomers = response.data
+    })
+  }
+
+  editCustomer(customer:any){
+    const title ="Edit Customer"
+    this.modalService.customer(title, customer).subscribe((resp)=>{
+      if(resp && resp.data) {
+        this.getAllCustomers()
+      }
+    })
+  }
+
+  deleteCustomer(id:any){
+    this.customerService.deleteCustomer(id).subscribe((resp:any)=>{
+      if(resp.status === 200){
+        this.alert.showSuccess(resp.message, "success")
+        this.getAllCustomers()
+      }else{
+        this.alert.showError(resp.message, "Error")
+      }
+    }, err => {
+      this.alert.showError(err, "Error")
     })
   }
 }

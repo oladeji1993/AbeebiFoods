@@ -61,7 +61,6 @@ export class StocksComponent implements OnInit {
 
   deletePackSize(id:any){
     this.product.deletePackSize(id).subscribe((resp:any) =>{
-      console.log(resp)
       if(resp.status === 200){
         this.alert.showSuccess(resp.message, "success")
         this.productDetails()

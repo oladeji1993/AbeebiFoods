@@ -16,7 +16,7 @@ export class AddPackSizeComponent implements OnInit {
   public submitted = false;
   productForm!: FormGroup;
   info: any;
-  title = "Add Pack Size"
+  title!: string;
 
 
   constructor(
@@ -40,7 +40,6 @@ export class AddPackSizeComponent implements OnInit {
     })
 
     if(this.info) {
-      console.log(this.info.id)
       this.productForm.patchValue(this.info);
     }
     this.getAllProduct()

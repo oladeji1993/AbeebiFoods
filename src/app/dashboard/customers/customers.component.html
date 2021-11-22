@@ -5,7 +5,6 @@
         <div class="operations">
             <div>
                 <button class="editBtn excel" (click)="addCustomers()">Add New Customer</button>
-                <!-- <button class="editBtn">print</button> -->
             </div>
             <div>
                 <input id="filter" placeholder="search" type="text"/>
@@ -31,21 +30,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let Transaction of Transactions | paginate : {itemsPerPage:8, currentPage:p} index as i">
-                                        <td>{{Transaction.date}}</td>
-                                        <td>{{Transaction.name}}</td>
-                                        <td>{{Transaction.phone}}</td>
-                                        <td>{{Transaction.address}}</td>
-                                        <td>{{Transaction.amount}}</td>
-                                        <td>{{Transaction.payment}}</td>
-                                        <td>{{Transaction.address}}</td>
-                                        <td>{{Transaction.amount}}</td>
+                                    <tr *ngFor="let customer of allCustomers | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{customer.firstname}} {{customer.lastname}}</td>
+                                        <td>{{customer.state}}</td>
+                                        <td>{{customer.phone}}</td>
+                                        <td>{{customer.email}}</td>
+                                        <td>{{customer.address}}</td>
+                                        <td>{{customer.totalamount}}</td>
+                                        <td>{{customer.totalpaid}}</td>
+                                        <td>{{customer.totalamount - customer.totalpaid}}</td>
                                         <td class="double-btn">
                                             <div>
-                                                <button class="editBtn">edit</button>
+                                                <button class="editBtn" (click)="editCustomer(customer)">edit</button>
                                             </div>
                                             <div>
-                                                <button  class="btn-2">Delete</button>
+                                                <button  class="btn-2" (click)="deleteCustomer(customer.id)">Delete</button>
                                             </div>
                                         </td>
                                     </tr>
