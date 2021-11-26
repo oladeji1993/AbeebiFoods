@@ -1,0 +1,52 @@
+<div class="content-container">
+    <div class="card">
+        <h5 class="card-header">Orders</h5>
+        <div class="card-body">
+        <div class="operations">
+            <div>
+                <button class="editBtn excel" (click)="placeOrder()">Place Order</button>
+                <!-- <button class="editBtn">print</button> -->
+            </div>
+            <div>
+                <input id="filter" placeholder="search" type="text"/>
+            </div>
+        </div>
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>Date</td>    
+                                        <td>Customer's Name</td>
+                                        <td>Product Name</td>  
+                                        <td>Qty</td> 
+                                        <td>Amount</td>    
+                                        <td>Amount paid</td>
+                                        <td>Balance</td>
+                                        <td>Action</td>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let Transaction of Transactions | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{Transaction.date}}</td>
+                                        <td>{{Transaction.name}}</td>
+                                        <td>{{Transaction.product_name}}</td>
+                                        <td>{{Transaction.qty}}</td>
+                                        <td>{{Transaction.amount}}</td>
+                                        <td>{{Transaction.phone}}</td>
+                                        <td>{{Transaction.qty}}</td>
+                                        <td><button class="editBtn">edit</button></td>
+                                    </tr>
+                            </tbody>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+        </div>
+</div>
+</div>

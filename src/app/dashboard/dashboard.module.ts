@@ -19,6 +19,7 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustomersComponent } from './customers/customers.component';
+import { OrdersComponent } from './orders/orders.component';
 
 
 
@@ -34,7 +35,8 @@ import { CustomersComponent } from './customers/customers.component';
     StocksComponent,
     ReturnsComponent,
     RegisterComponent,
-    CustomersComponent
+    CustomersComponent,
+    OrdersComponent
   ],
   imports: [
     CommonModule,

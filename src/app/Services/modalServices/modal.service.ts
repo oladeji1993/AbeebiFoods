@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { CustomerComponent } from 'src/app/shared/modal/customer/customer.component';
+import { OrderComponent } from 'src/app/shared/modal/order/order.component';
 import {AddPackSizeComponent} from '../../shared/modal/add-pack-size/add-pack-size.component';
 
 @Injectable({
@@ -33,6 +34,20 @@ export class ModalService {
     let dialogRef: MatDialogRef<CustomerComponent>;
     dialogRef = this.matDialog.open(CustomerComponent);
     dialogRef.componentInstance.data = data;
+    dialogRef.componentInstance.title = title;
+    dialogRef.updateSize('600px');
+    dialogRef.addPanelClass([
+      'animate__animated',
+      'animate__zoomIn',
+    ]);
+    return dialogRef.afterClosed();
+  }
+
+
+  order( title:string, orderParams?: any,) {
+    let dialogRef: MatDialogRef<OrderComponent>;
+    dialogRef = this.matDialog.open(OrderComponent);
+    dialogRef.componentInstance.orderParams = orderParams;
     dialogRef.componentInstance.title = title;
     dialogRef.updateSize('600px');
     dialogRef.addPanelClass([

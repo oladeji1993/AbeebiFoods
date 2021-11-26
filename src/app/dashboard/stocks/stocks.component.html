@@ -4,7 +4,7 @@
         <div class="card-body">
         <div class="Action-btn">
             <div>
-                <button class="new_size" (click)="addProductSize()">Add New Pack Size</button>
+                <button class="new_size" (click)="addProductSize()">Add Stock</button>
                 <button class="add_product" (click)="addProduct()">Add Product Name</button>
             </div>
         </div>
@@ -28,10 +28,10 @@
                                         <td>pack size</td>
                                         <td>Cost of Production</td>
                                         <td>Selling price</td>  
-                                        <td>Total qty</td>    
-                                        <td>Qty_out</td>
+                                        <td>Total qty Produced</td>    
+                                        <!-- <td>Qty_out</td>
                                         <td>Qty_left</td>
-                                        <td>New_qty</td>   
+                                        <td>New_qty</td>    -->
                                         <td>
                                             Action
                                         </td>    
@@ -44,10 +44,11 @@
                                         <td>{{product.packsize}}</td>
                                         <td>{{product.costofproduction}}</td>
                                         <td>{{product.sellingprice}}</td>
-                                        <td>{{product.quantity}}</td>
+                                        <td>{{product.quantity}}
+                                        <!-- <td>{{product.quantity}}</td>
                                         <td>{{product.qtyout}}</td>
                                         <td>{{product.quantity - product.qtyout}}</td>
-                                        <td>{{product.newqty}}</td>
+                                        <td>{{product.newqty}}</td> -->
                                         <td class="double-btn">
                                             <div>
                                                 <button class="editBtn" (click)="editProduct(product)">edit</button>
