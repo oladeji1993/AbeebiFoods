@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { AlertService } from 'src/app/Services/alert/alert.service';
 import { CustomerService } from 'src/app/Services/customer/customer.service';
+import { OrderService } from 'src/app/Services/order/order.service';
 import { ProductService } from 'src/app/Services/product/product.service';
 import { AddPackSizeComponent } from '../add-pack-size/add-pack-size.component';
 
@@ -27,7 +28,8 @@ export class OrderComponent implements OnInit {
     private product: ProductService,
     public fb: FormBuilder,
     private customer: CustomerService,
-    private alert: AlertService
+    private alert: AlertService,
+    private orderService: OrderService
 
 
   ) { }
@@ -76,7 +78,17 @@ export class OrderComponent implements OnInit {
     if(this.productForm.invalid){
       return
     }else{
-      console.log(this.productForm)
+      this.orderService.addOrder(this.productForm.value).subscribe((data:any)=>{
+        if(data.status === 200){
+          this.alert.showSuccess(data.message, "success")
+          this.closeModal(true);
+          return
+        }else{
+          this.alert.showError(data.message, "Error")
+        }
+      }, err =>{
+        this.alert.showError(err, "Error")
+      })
     }
   }
 

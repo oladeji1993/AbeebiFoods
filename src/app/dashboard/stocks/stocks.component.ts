@@ -30,7 +30,6 @@ export class StocksComponent implements OnInit {
   addProduct(){
     let dialogRef: MatDialogRef<AddProductComponent>;
     dialogRef = this.matDialog.open(AddProductComponent);
-    // dialogRef.componentInstance.info = info;
     dialogRef.updateSize('600px');
     dialogRef.addPanelClass([
       'animate__animated',
@@ -75,7 +74,7 @@ export class StocksComponent implements OnInit {
 
   productDetails(){
     this.product.getPackSize().subscribe((resp:any) =>{
-      this.allProductDetails = resp.data
+      this.allProductDetails = resp.data.results
     })
   }
   

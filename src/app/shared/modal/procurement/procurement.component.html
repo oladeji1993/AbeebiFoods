@@ -1,0 +1,95 @@
+<div mat-dialog-title class="title">
+    <div class="header">{{ title }}</div>
+    <div class="dismiss" (click)="closeModal()">Close</div>
+</div>
+
+<div>
+    <form [formGroup]="customerForm" (ngSubmit)="addProcurement()">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card-body">
+
+                    <label class="mt-3">Procurement Name</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="nameofprocurement" placeholder="procurement Name" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('nameofprocurement')?.invalid}">
+                        <div *ngIf="submitted && customerForm.get('nameofprocurement')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="customerForm.get('nameofprocurement')?.hasError('required')">Procurement Name is required</div>
+                        </div>
+                    </div>
+                
+                    <label class="mt-3">Procurement Type</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="procurementtype" placeholder="procurement type" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('procurementtype')?.invalid}">
+                        <div *ngIf="submitted && customerForm.get('procurementtype')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="customerForm.get('procurementtype')?.hasError('required')">Procurement type is required</div>
+                        </div>
+                    </div>
+
+
+                    <label class="mt-3">Quantity Supplied</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" formControlName="qtysupplied" placeholder="qty supplied" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('qtysupplied')?.invalid}">
+                        <div *ngIf="submitted && customerForm.get('qtysuppled')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="customerForm.get('qtysupplied')?.hasError('required')">Qty supplied is required</div>
+                        </div>
+                    </div>
+
+                    <label class="mt-3"> Supplier Phone number</label>
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" formControlName="phone" placeholder="Phone number" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('phone')?.invalid}">
+                        <div *ngIf="submitted && customerForm.get('phone')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="customerForm.get('phone')?.hasError('required')">Phone number is required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="mt-4">Quantity of raw material</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="materialquality" placeholder="material quality" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('materialquality')?.invalid}">
+                    <div *ngIf="submitted && customerForm.get('materialquality')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="customerForm.get('materialquality')?.hasError('required')">Material quality is required</div>
+                    </div>
+                </div>
+                
+                <label class="mt-3">Procurement Date</label>
+                <div class="input-group mb-3">
+                    <input type="date" class="form-control" formControlName="procurementdate" placeholder="Procurement Date" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('procurementdate')?.invalid}">
+                    <div *ngIf="submitted && customerForm.get('procurementdate')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="customerForm.get('procurementdate')?.hasError('required')">Procurement Date is required</div>
+                    </div>
+                </div>
+
+                <label class="mt-3">Supplier Name</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="suppliername" placeholder="supplier name" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('suppliername')?.invalid}">
+                    <div *ngIf="submitted && customerForm.get('suppliername')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="customerForm.get('suppliername')?.hasError('required')">Supplier name is required</div>
+                    </div>
+                </div>
+
+                <label class="mt-3">Amount</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="amount" placeholder="amount" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('amount')?.invalid}">
+                    <div *ngIf="submitted && customerForm.get('amount')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="customerForm.get('amount')?.hasError('required')">Amount is required</div>
+                    </div>
+                </div>
+<!-- 
+                <label class="mt-3">Total Paid</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" formControlName="totalpaid" placeholder="Total Paid" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  customerForm.get('totalpaid')?.invalid}">
+                    <div *ngIf="submitted && customerForm.get('totalpaid')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="customerForm.get('totalpaid')?.hasError('required')">Total paid is required</div>
+                    </div>
+                </div> -->
+
+                
+            </div>
+        </div>
+        <div class="pay-btn">
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </form>
+</div>

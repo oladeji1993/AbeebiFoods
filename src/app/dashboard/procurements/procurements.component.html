@@ -1,0 +1,54 @@
+<div class="content-container">
+    <div class="card">
+        <h5 class="card-header">Procurements</h5>
+        <div class="card-body">
+        <div class="operations">
+            <div>
+                <button class="editBtn excel" (click)="addProcurement()">Add Procurement</button>
+            </div>
+            <div>
+                <input id="filter" placeholder="search" type="text"/>
+            </div>
+        </div>
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>Date</td>    
+                                        <td>Procurement Name</td>
+                                        <td>Qty Supplied</td>
+                                        <td>Supplier Name</td>
+                                        <td>Quality</td>
+                                        <td>Supplier Phone Number</td>   
+                                        <td>Amount</td>    
+                                        <td>Qty</td> 
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let procurement of allProcurements | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{procurement.procurementdate}}</td>
+                                        <td>{{procurement.nameofprocurement}}</td>
+                                        <td>{{procurement.qtysupplied}}</td>
+                                        <td>{{procurement.suppliername}}</td>
+                                        <td>{{procurement.materialquality}}</td>
+                                        <td>{{procurement.phone}}</td>
+                                        <td>{{procurement.amount}}</td>
+                                        <td>{{procurement.qtysupplied}}</td>
+
+                                        
+                                        <!-- <td><button class="editBtn">edit</button></td> -->
+                                    </tr>
+                            </tbody>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </table>
+                </div>
+            </div>
+        </div> 
+    </div>
+        </div>
+</div>
+</div>

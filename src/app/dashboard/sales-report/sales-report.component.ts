@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'src/app/Services/order/order.service';
+import { ProductService } from 'src/app/Services/product/product.service';
 
 @Component({
   selector: 'app-sales-report',
@@ -7,9 +9,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SalesReportComponent implements OnInit {
 
-  constructor() { }
+  p: number = 1;
+  allOrders! : any;
+  allProducts!: any[];
+  productReport: any;
+  totalQuantity: any;
+  singleQty: any
+
+
+
+  constructor(
+    private orderService: OrderService,
+    private product: ProductService,
+
+  ) { }
 
   ngOnInit(): void {
+    this.getOrders()
+    this.getAllProduct()
+  }
+
+  getOrders(){
+    this.orderService.getOrders().subscribe((data:any)=>{
+      this. totalQuantity = data.data.totalQty
+      this.allOrders = data.data.results;
+    })
+  }
+  
+ 
+
+  onOptionsSelected(productname:string){
+    if(productname === "all"){
+      this.getOrders()
+      this.singleQty = 0
+      return;
+    }
+    const data = {
+      productname: productname
+    }
+    this.product.getReport(data).subscribe((response:any) =>{
+      this.allOrders = response.data.results
+      this.singleQty = response.data.totalQty
+    })
+  }
+
+
+  getAllProduct(){
+    this.product.getProducts().subscribe((response:any) => {
+      this.allProducts = response.data
+    })
   }
 
 }

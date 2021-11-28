@@ -15,6 +15,7 @@ import { AddPackSizeComponent } from './shared/modal/add-pack-size/add-pack-size
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustomerComponent } from './shared/modal/customer/customer.component';
 import { OrderComponent } from './shared/modal/order/order.component';
+import { ProcurementComponent } from './shared/modal/procurement/procurement.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { OrderComponent } from './shared/modal/order/order.component';
     AddProductComponent,
     AddPackSizeComponent,
     CustomerComponent,
-    OrderComponent
+    OrderComponent,
+    ProcurementComponent
   ],
   imports: [
     BrowserModule,

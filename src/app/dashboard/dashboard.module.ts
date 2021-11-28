@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
+import { ProcurementsComponent } from './procurements/procurements.component';
 
 
 
@@ -36,7 +37,8 @@ import { OrdersComponent } from './orders/orders.component';
     ReturnsComponent,
     RegisterComponent,
     CustomersComponent,
-    OrdersComponent
+    OrdersComponent,
+    ProcurementsComponent
   ],
   imports: [
     CommonModule,

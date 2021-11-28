@@ -30,14 +30,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let Transaction of Transactions | paginate : {itemsPerPage:8, currentPage:p} index as i">
-                                        <td>{{Transaction.date}}</td>
-                                        <td>{{Transaction.name}}</td>
-                                        <td>{{Transaction.product_name}}</td>
-                                        <td>{{Transaction.qty}}</td>
-                                        <td>{{Transaction.amount}}</td>
-                                        <td>{{Transaction.phone}}</td>
-                                        <td>{{Transaction.qty}}</td>
+                                    <tr *ngFor="let order of allOrders | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{order.orderdate}}</td>
+                                        <td>{{order.customername}}</td>
+                                        <td>{{order.productname}}</td>
+                                        <td>{{order.quantity}}</td>
+                                        <td>{{order.productprice}}</td>
+                                        <td>{{order.amountpaid}}</td>
+                                        <td>{{order.tobalance}}</td>
                                         <td><button class="editBtn">edit</button></td>
                                     </tr>
                             </tbody>

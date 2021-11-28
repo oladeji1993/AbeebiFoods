@@ -16,6 +16,11 @@ export class ProductService {
     return this.http.get(`${this._productUrl}/products`);
   }
 
+  getReport(product:any){
+    return this.http.post(`${this._productUrl}/report`, product);
+  }
+
+
   addProduct(user:any){
     return this.http.post(`${this._productUrl}/products`, user);
   }

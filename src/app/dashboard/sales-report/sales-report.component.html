@@ -1,1 +1,60 @@
-<p>sales-report works!</p>
+<div class="content-container">
+    <div class="card">
+        <h5 class="card-header">Sales Report</h5>
+        <div class="card-body">
+        <div class="operations">
+            <div id="name-select">
+                <div><label>Product Name</label></div>
+                <div>
+                    <select class="form-select" aria-label="Default select example" #mySelect (change)='onOptionsSelected(mySelect.value)'>
+                        <option value="all">All Sales</option>
+                        <option *ngFor="let product of allProducts"  [value]="product.productname">{{product.productname}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <input id="filter" placeholder="search" type="text"/>
+            </div>
+        </div>
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>CustomerID</td>    
+                                        <td>Customer's Name</td>
+                                        <td>Product Name</td>
+                                        <td>Order date</td>  
+                                        <td>Amount paid</td>    
+                                        <td>Quantity</td> 
+                                        <!-- <td>Edit</td>     -->
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let order of  allOrders | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{order.id}}</td>
+                                        <td>{{order.customername}}</td> 
+                                        <td>{{order.productname}}</td>
+                                        <td>{{order.orderdate}}</td>
+                                        <td>{{order.amountpaid}}</td>
+                                        <td>{{order.quantity}}</td>
+                                        <!-- <td><button class="editBtn">edit</button></td> -->
+                                    </tr>
+                            </tbody>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </table>
+                    <div class="summary">
+                        <div>Total Quantity Sold: <span>{{totalQuantity}}</span></div>
+                        <div>Single Product Quantity sold: <span>{{singleQty || 0}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+        </div>
+</div>
+</div>

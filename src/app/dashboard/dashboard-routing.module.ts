@@ -10,6 +10,7 @@ import { StocksComponent } from './stocks/stocks.component';
 import { TransactionComponent } from './transaction/transaction.component';
 import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
+import { ProcurementsComponent } from './procurements/procurements.component';
 
 const routes: Routes = [
   { 
@@ -57,6 +58,10 @@ const routes: Routes = [
         path: 'order',
         component: OrdersComponent
       },
+      {
+        path: 'procurements',
+        component: ProcurementsComponent
+      }
     ]
   }]
   ;
