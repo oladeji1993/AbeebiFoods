@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CustomerComponent } from './shared/modal/customer/customer.component';
 import { OrderComponent } from './shared/modal/order/order.component';
 import { ProcurementComponent } from './shared/modal/procurement/procurement.component';
+import { IsLoggedIn } from './shared/utilities/is-logged-in';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ProcurementComponent } from './shared/modal/procurement/procurement.com
   providers: [
     FormsModule,
     ReactiveFormsModule,
+    IsLoggedIn,
     AuthInterceptorProvider
   ],
   bootstrap: [AppComponent]

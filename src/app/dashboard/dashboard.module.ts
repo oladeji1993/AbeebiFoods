@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProcurementsComponent } from './procurements/procurements.component';
+import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 
 
 
@@ -51,6 +52,9 @@ import { ProcurementsComponent } from './procurements/procurements.component';
     MatDialogModule,
     HttpClientModule,
     NgxPaginationModule
-  ]
+  ],
+  providers: [
+    IsLoggedIn,
+  ],
 })
 export class DashboardModule { }

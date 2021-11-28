@@ -11,9 +11,12 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProcurementsComponent } from './procurements/procurements.component';
+import { LoginComponent } from '../components/login/login.component';
+import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 
 const routes: Routes = [
   { 
+
     path: '', 
     component: DashboardComponent,
     children: [
@@ -24,7 +27,8 @@ const routes: Routes = [
       },
       {
           path: 'home',
-          component: HomeComponent
+          component: HomeComponent,
+          resolve: [IsLoggedIn]
       },
       {
         path: 'transactions',
@@ -63,7 +67,12 @@ const routes: Routes = [
         component: ProcurementsComponent
       }
     ]
-  }]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+]
   ;
 
 @NgModule({

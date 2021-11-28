@@ -30,4 +30,20 @@ export class AuthService {
   registerUser(user:any){
     return this.http.post(this._registerUrl, user);
   }
+
+
+  // userIsLoggedIn(){
+  //   let bool: boolean;
+  //   const token = localStorage.getItem('token')
+  //   const role = localStorage.getItem('role')
+  
+  //   if(token && role) {
+  //     bool = true;
+  //   } else {
+  //     bool = false;
+  //   }
+  //   return bool;
+  // }
+
+
 }

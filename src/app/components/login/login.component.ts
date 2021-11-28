@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   signinForm!: FormGroup;
   public submitted = false;  
   token:any
+  role:any
 
   constructor(
     private router: Router,
@@ -50,7 +51,9 @@ export class LoginComponent implements OnInit {
         console.log(data);
         if(data.status === 200){
           this.token = data.token;
+          this.role = data.role
           localStorage.setItem('token',  JSON.stringify(this.token));
+          localStorage.setItem('role',  this.role);
           this.router.navigate(['/Dashboard'])
           this.alert.showSuccess(data.message, 'Success');
         }else{

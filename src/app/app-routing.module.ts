@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IsLoggedIn } from './shared/utilities/is-logged-in';
 
 
 const routes: Routes = [
@@ -12,7 +13,9 @@ const routes: Routes = [
 
     { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
 
-    { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule) },
+    { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+
+    },
 
 ]
 

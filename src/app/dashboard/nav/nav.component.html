@@ -4,30 +4,30 @@
         <!-- <a class="navbar-brand" href="#" id="logo">KP <span>Initiatives</span></a> -->
     </div>
     <div class="mt-5">
-        <div mat-list-item [routerLink]="['/Dashboard/home']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+        <div *ngIf="show" mat-list-item [routerLink]="['/Dashboard/home']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tachometer-alt"></i>
             <a style="text-decoration: none; color:#fff; line-height: 1; font-size: 14px;cursor:pointer">Dashboard</a>
         </div>
-        <div mat-list-item [routerLink]="['./transactions']" routerLinkActive="is-active"  style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+        <div *ngIf="show" mat-list-item [routerLink]="['./transactions']" routerLinkActive="is-active"  style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-people-arrows"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Transactions</a>
         </div>
 
-        <div mat-list-item [routerLink]="['/Dashboard/sales-report']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="show" mat-list-item [routerLink]="['/Dashboard/sales-report']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="far fa-clipboard"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Sales Report</a>
         </div>
 
-        <div  [routerLink]="['/Dashboard/payment-report']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="show"  [routerLink]="['/Dashboard/payment-report']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-money-bill-wave"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Payment Report</a>
         </div>
-        <div  [routerLink]="['/Dashboard/stocks']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="show" [routerLink]="['/Dashboard/stocks']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Stocks (FP)</a>
         </div>
 
-        <div  [routerLink]="['/Dashboard/customers']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="show" [routerLink]="['/Dashboard/customers']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Customers</a>
         </div>
@@ -37,19 +37,19 @@
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Procurements</a>
         </div>
 
-        <div  [routerLink]="['/Dashboard/order']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="show"  [routerLink]="['/Dashboard/order']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Orders</a>
         </div>
 
-        <div  [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="show" [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Register User</a>
         </div>
 
-        <div  [routerLink]="['']" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+        <div style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-sign-out-alt"></i>
-            <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Logout</a>
+            <a (click)="logOut()" style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Logout</a>
         </div>
     </div>
 </div>
