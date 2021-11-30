@@ -11,6 +11,8 @@ export class AuthService {
   private _loginUrl = "http://localhost:3000/api/users/login";
   private _roleUrl = "http://localhost:3000/api/users";
   private _registerUrl = "http://localhost:3000/api/users";
+  token: any
+  user: any
 
   constructor(
     private http : HttpClient,
@@ -32,18 +34,32 @@ export class AuthService {
   }
 
 
-  // userIsLoggedIn(){
-  //   let bool: boolean;
-  //   const token = localStorage.getItem('token')
-  //   const role = localStorage.getItem('role')
+  IsLoggedIn(){
+    let bool: boolean;
+    const token = localStorage.getItem('token')
+    const role = localStorage.getItem('role')
+    if(token && role) {
+      bool = true;
+    } else {
+      bool = false;
+    }
+    return bool;
+  }
+
+  userIsLoggedIn(){
+    let bool: boolean;
+    const token = localStorage.getItem('token')
+    const role = localStorage.getItem('role')
   
-  //   if(token && role) {
-  //     bool = true;
-  //   } else {
-  //     bool = false;
-  //   }
-  //   return bool;
-  // }
+    if(token && role == "1") {
+      bool = true;
+    }else if(token && role == "2" || role == "5"){
+      bool = true;
+    } else {
+      bool = false;
+    }
+    return bool;
+  }
 
 
 }

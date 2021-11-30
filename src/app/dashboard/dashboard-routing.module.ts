@@ -12,6 +12,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProcurementsComponent } from './procurements/procurements.component';
 import { LoginComponent } from '../components/login/login.component';
+import { AuthGuard } from '../Services/auth.guard';
+import { HasRoleGuardGuard } from '../Services/has-role-guard.guard';
+import { DistributorsComponent } from './distributors/distributors.component';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 
 const routes: Routes = [
@@ -28,43 +31,99 @@ const routes: Routes = [
       {
           path: 'home',
           component: HomeComponent,
-          resolve: [IsLoggedIn]
-      },
+          canActivate: [AuthGuard],
+          // resolve: [IsLoggedIn],
+        },
       {
         path: 'transactions',
-        component: TransactionComponent
+        component: TransactionComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1"]
+        }
+
       },
       {
         path: 'register',
-        component: RegisterComponent
+        component: RegisterComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1"]
+        }
+
+
       },
       {
         path: 'sales-report',
-        component: SalesReportComponent
+        component: SalesReportComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1", "5"]
+        }
       },
       {
         path: 'payment-report',
-        component: PaymentReportsComponent
+        component: PaymentReportsComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1"]
+        },
       },
       {
         path: 'stocks',
-        component: StocksComponent
+        component: StocksComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1", "5"]
+        }
       },
       {
         path: 'return',
-        component: ReturnsComponent
+        component: ReturnsComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1"]
+        }
+
+
       },
       {
         path: 'customers',
-        component: CustomersComponent
+        component: CustomersComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1", "5"]
+        }
+
+
       },
       {
         path: 'order',
-        component: OrdersComponent
+        component: OrdersComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1", "5"]
+        }
+
+
       },
       {
         path: 'procurements',
-        component: ProcurementsComponent
+        component: ProcurementsComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ['1', '2']
+        }
+
+      },
+      {
+        path: 'distributors',
+        component: DistributorsComponent,
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1"]
+        }
+
       }
     ]
   },
@@ -72,8 +131,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+  {
+    path: '**',
+    redirectTo: 'Dashboard/home'
+  }
 ]
-  ;
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

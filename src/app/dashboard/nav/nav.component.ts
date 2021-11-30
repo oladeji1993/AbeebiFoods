@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   show = true;
+  showMarketer = true;
+  procurement = true;
 
   constructor(
     private router: Router,
@@ -21,9 +23,17 @@ export class NavComponent implements OnInit {
   checkRole(){
     const role = localStorage.getItem('role')
     if(role == "2"){
-      this.show = false
+      this.show = false;
+      this.procurement = true;
+      this.showMarketer = false;
     }else if(role == "1"){
-      this.show = true
+      this.show = true;
+      this.showMarketer = true;
+      this.procurement = true;
+    }else if(role == "5"){
+      this.show = false;
+      this.procurement = false;
+      this.showMarketer = true;
     }
   }
 

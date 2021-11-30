@@ -11,11 +11,18 @@ const routes: Routes = [
       pathMatch: 'full'
     },
 
-    { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+    { 
+      path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+      resolve: [IsLoggedIn]
+    },
 
     { path: 'Dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
-
     },
+
+    {
+      path: '**',
+      redirectTo: 'home'
+    }
 
 ]
 

@@ -13,7 +13,7 @@
             <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Transactions</a>
         </div>
 
-        <div *ngIf="show" mat-list-item [routerLink]="['/Dashboard/sales-report']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="showMarketer" mat-list-item [routerLink]="['/Dashboard/sales-report']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="far fa-clipboard"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Sales Report</a>
         </div>
@@ -22,22 +22,22 @@
             <i style="color:#fff; padding-right:10px" class="fas fa-money-bill-wave"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Payment Report</a>
         </div>
-        <div *ngIf="show" [routerLink]="['/Dashboard/stocks']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="showMarketer" [routerLink]="['/Dashboard/stocks']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Stocks (FP)</a>
         </div>
 
-        <div *ngIf="show" [routerLink]="['/Dashboard/customers']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="showMarketer" [routerLink]="['/Dashboard/customers']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Customers</a>
         </div>
 
-        <div  [routerLink]="['/Dashboard/procurements']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="procurement" [routerLink]="['/Dashboard/procurements']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Procurements</a>
         </div>
 
-        <div *ngIf="show"  [routerLink]="['/Dashboard/order']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="showMarketer"  [routerLink]="['/Dashboard/order']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Orders</a>
         </div>
@@ -45,6 +45,11 @@
         <div *ngIf="show" [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Register User</a>
+        </div>
+
+        <div *ngIf="showMarketer" [routerLink]="['/Dashboard/distributors']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+            <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
+            <a style="text-decoration: none; color:#fff; font-size: 14px;">Distributors</a>
         </div>
 
         <div style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">

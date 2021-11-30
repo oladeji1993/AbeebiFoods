@@ -22,6 +22,8 @@ import { CustomersComponent } from './customers/customers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProcurementsComponent } from './procurements/procurements.component';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
+import { AuthGuard } from '../Services/auth.guard';
+import { DistributorsComponent } from './distributors/distributors.component';
 
 
 
@@ -39,7 +41,8 @@ import { IsLoggedIn } from '../shared/utilities/is-logged-in';
     RegisterComponent,
     CustomersComponent,
     OrdersComponent,
-    ProcurementsComponent
+    ProcurementsComponent,
+    DistributorsComponent
   ],
   imports: [
     CommonModule,
@@ -55,6 +58,7 @@ import { IsLoggedIn } from '../shared/utilities/is-logged-in';
   ],
   providers: [
     IsLoggedIn,
+    AuthGuard
   ],
 })
 export class DashboardModule { }

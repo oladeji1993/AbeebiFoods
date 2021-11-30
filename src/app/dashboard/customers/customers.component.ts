@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertService } from 'src/app/Services/alert/alert.service';
+import { AuthService } from 'src/app/Services/auth/auth.service';
 import { CustomerService } from 'src/app/Services/customer/customer.service';
 import { ModalService } from 'src/app/Services/modalServices/modal.service';
 
@@ -16,7 +17,8 @@ export class CustomersComponent implements OnInit {
   constructor(
     private modalService: ModalService,
     private customerService: CustomerService,
-    private alert: AlertService
+    private alert: AlertService,
+    private auth: AuthService,
   ) { }
 
   ngOnInit(): void {
@@ -34,10 +36,10 @@ export class CustomersComponent implements OnInit {
 
   getAllCustomers(){
     this.customerService.getCustomers().subscribe((response:any) => {
-      console.log(response.data)
       this.allCustomers = response.data
     })
   }
+
 
   editCustomer(customer:any){
     const title ="Edit Customer"

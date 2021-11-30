@@ -9,15 +9,12 @@ export class IsLoggedIn {
 
     constructor(
         private router: Router,
+        private authService: AuthService
     ) {}
 
     resolve(): void {
-        const token = localStorage.getItem('token')
-        const role = localStorage.getItem('role')
-        if(token && role) {
-            this.router.navigate(['Dashboard/home']);
-        }else{
-            this.router.navigate(['Dashboard/login']);
+        if(this.authService.userIsLoggedIn()){
+            this.router.navigate(['Dashboard/home'])
         }
     }
 }
