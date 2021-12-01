@@ -22,7 +22,7 @@
             <i style="color:#fff; padding-right:10px" class="fas fa-money-bill-wave"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Payment Report</a>
         </div>
-        <div *ngIf="showMarketer" [routerLink]="['/Dashboard/stocks']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="showprodManager" [routerLink]="['/Dashboard/stocks']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Stocks (FP)</a>
         </div>
@@ -45,11 +45,6 @@
         <div *ngIf="show" [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Register User</a>
-        </div>
-
-        <div *ngIf="showMarketer" [routerLink]="['/Dashboard/distributors']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
-            <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
-            <a style="text-decoration: none; color:#fff; font-size: 14px;">Distributors</a>
         </div>
 
         <div style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">

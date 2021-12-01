@@ -11,6 +11,7 @@ export class NavComponent implements OnInit {
   show = true;
   showMarketer = true;
   procurement = true;
+  showprodManager = true
 
   constructor(
     private router: Router,
@@ -26,15 +27,26 @@ export class NavComponent implements OnInit {
       this.show = false;
       this.procurement = true;
       this.showMarketer = false;
+      this.showprodManager = false
+
     }else if(role == "1"){
       this.show = true;
       this.showMarketer = true;
       this.procurement = true;
+      this.showprodManager = true
     }else if(role == "5"){
       this.show = false;
       this.procurement = false;
       this.showMarketer = true;
-    }
+      this.showprodManager = false
+
+    }else if(role == "4"){
+    this.show = false;
+    this.procurement = false;
+    this.showMarketer = false;
+    this.showprodManager = true;
+
+  }
   }
 
   logOut(){

@@ -20,7 +20,7 @@
                                     <tr style="padding:30px">
                                         <td>Date</td>    
                                         <td>Customer's Name</td>
-                                        <td>Product Name</td>  
+                                        <!-- <td>Product Name</td>   -->
                                         <td>Qty</td> 
                                         <td>Amount</td>    
                                         <td>Amount paid</td>
@@ -31,14 +31,17 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let order of allOrders | paginate : {itemsPerPage:8, currentPage:p} index as i">
-                                        <td>{{order.orderdate}}</td>
+                                        <td>{{order.orderdate | date: 'dd/MM/yyyy'}}</td>
                                         <td>{{order.customername}}</td>
-                                        <td>{{order.productname}}</td>
+                                        <!-- <td>{{order.productname}}</td> -->
                                         <td>{{order.quantity}}</td>
                                         <td>{{order.productprice}}</td>
                                         <td>{{order.amountpaid}}</td>
                                         <td>{{order.tobalance}}</td>
-                                        <td><button class="editBtn">edit</button></td>
+                                        <td>
+                                            <button class="editBtn">edit</button>
+                                            <button class="editBtn ml-4">Details</button>
+                                        </td>
                                     </tr>
                             </tbody>
                             <pagination-controls (pageChange)="p = $event"></pagination-controls>

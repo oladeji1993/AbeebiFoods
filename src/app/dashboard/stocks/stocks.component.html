@@ -24,14 +24,12 @@
                             <table width="100%">
                                 <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
                                     <tr style="padding:30px">
+                                        <td>Date</td>
                                         <td>Product</td>    
                                         <td>pack size</td>
-                                        <td>Cost of Production</td>
+                                        <td>Damages</td>
                                         <td>Selling price</td>  
-                                        <td>Total qty Produced</td>    
-                                        <!-- <td>Qty_out</td>
-                                        <td>Qty_left</td>
-                                        <td>New_qty</td>    -->
+                                        <td>Total qty Produced</td> 
                                         <td>
                                             Action
                                         </td>    
@@ -40,15 +38,12 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let product of allProductDetails | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>-</td>
                                         <td>{{product.productname}}</td>
                                         <td>{{product.packsize}}</td>
-                                        <td>{{product.costofproduction}}</td>
+                                        <td>-</td>
                                         <td>{{product.sellingprice}}</td>
                                         <td>{{product.quantity}}
-                                        <!-- <td>{{product.quantity}}</td>
-                                        <td>{{product.qtyout}}</td>
-                                        <td>{{product.quantity - product.qtyout}}</td>
-                                        <td>{{product.newqty}}</td> -->
                                         <td class="double-btn">
                                             <div>
                                                 <button class="editBtn" (click)="editProduct(product)">edit</button>

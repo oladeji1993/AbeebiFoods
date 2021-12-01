@@ -14,7 +14,6 @@ import { ProcurementsComponent } from './procurements/procurements.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthGuard } from '../Services/auth.guard';
 import { HasRoleGuardGuard } from '../Services/has-role-guard.guard';
-import { DistributorsComponent } from './distributors/distributors.component';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 
 const routes: Routes = [
@@ -113,15 +112,6 @@ const routes: Routes = [
         canActivate: [AuthGuard, HasRoleGuardGuard],
         data: {
           role: ['1', '2']
-        }
-
-      },
-      {
-        path: 'distributors',
-        component: DistributorsComponent,
-        canActivate: [AuthGuard, HasRoleGuardGuard],
-        data: {
-          role: ["1"]
         }
 
       }

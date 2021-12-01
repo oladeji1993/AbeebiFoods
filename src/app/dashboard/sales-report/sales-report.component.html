@@ -39,7 +39,7 @@
                                         <td>{{order.id}}</td>
                                         <td>{{order.customername}}</td> 
                                         <td>{{order.productname}}</td>
-                                        <td>{{order.orderdate}}</td>
+                                        <td>{{order.orderdate | date: 'dd/MM/yyyy'}}</td>
                                         <td>{{order.amountpaid}}</td>
                                         <td>{{order.quantity}}</td>
                                         <!-- <td><button class="editBtn">edit</button></td> -->

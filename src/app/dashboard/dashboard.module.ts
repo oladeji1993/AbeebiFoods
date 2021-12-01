@@ -23,7 +23,6 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProcurementsComponent } from './procurements/procurements.component';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 import { AuthGuard } from '../Services/auth.guard';
-import { DistributorsComponent } from './distributors/distributors.component';
 
 
 
@@ -42,7 +41,6 @@ import { DistributorsComponent } from './distributors/distributors.component';
     CustomersComponent,
     OrdersComponent,
     ProcurementsComponent,
-    DistributorsComponent
   ],
   imports: [
     CommonModule,

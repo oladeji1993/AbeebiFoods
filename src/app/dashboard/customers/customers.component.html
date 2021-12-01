@@ -18,10 +18,10 @@
                                 <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
                                     <tr style="padding:30px">
                                         <td>Name</td>    
-                                        <td>State</td>
+                                        <td>Company Name</td>
                                         <td>Phone</td>
                                         <td>Email</td>
-                                        <td>Address</td>  
+                                        <td>Biz Address</td>  
                                         <!-- <td>Total Amount</td>    
                                         <td>Amount paid</td> 
                                         <td>Total balance</td>        -->
@@ -32,7 +32,7 @@
                                 <tbody>
                                     <tr *ngFor="let customer of allCustomers | paginate : {itemsPerPage:8, currentPage:p} index as i">
                                         <td>{{customer.firstname}} {{customer.lastname}}</td>
-                                        <td>{{customer.state}}</td>
+                                        <td>-</td>
                                         <td>{{customer.phone}}</td>
                                         <td>{{customer.email}}</td>
                                         <td>{{customer.address}}</td>

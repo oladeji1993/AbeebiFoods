@@ -36,6 +36,9 @@ export class ProcurementsComponent implements OnInit {
   getAllProcurements(){
     this.procurementService.getProcurements().subscribe((response:any) =>{
       this.allProcurements = response.data;
+      // const date = response.data.procurementdate
+      // date.toLocaleDateString({ year: 'numeric', month: '2-digit', day: '2-digit' })
+      // console.log(date)
     })
   }
 }
