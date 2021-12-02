@@ -18,25 +18,21 @@
                             <table width="100%">
                                 <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
                                     <tr style="padding:30px">
+                                        <td>Payment Date</td>
                                         <td>CustomerID</td>    
                                         <td>Customer's Name</td>
-                                        <!-- <td>Phone</td> -->
-                                        <!-- <td>Address</td>   -->
                                         <td>Amount paid</td>    
                                         <td>Payment Type</td> 
-                                        <!-- <td>Edit</td>     -->
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let payment of  allPayment | paginate : {itemsPerPage:8, currentPage:p} index as i">
+                                        <td>{{payment.datereceived | date: 'dd/MM/yyyy'}}</td>
                                         <td>{{payment.id}}</td>
                                         <td>{{payment.customername}}</td> 
-                                        <!-- <td>{{Transaction.phone}}</td> -->
-                                        <!-- <td>{{Transaction.address}}</td> -->
                                         <td>{{payment.amount}}</td>
                                         <td>{{payment.paymenttype}}</td>
-                                        <!-- <td><button class="editBtn">edit</button></td> -->
                                     </tr>
                             </tbody>
                             <pagination-controls (pageChange)="p = $event"></pagination-controls>

@@ -18,9 +18,9 @@
                             <table width="100%">
                                 <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
                                     <tr style="padding:30px">
-                                        <td>Date</td>    
+                                        <td>Date</td> 
+                                        <td>OrderID</td>   
                                         <td>Customer's Name</td>
-                                        <!-- <td>Product Name</td>   -->
                                         <td>Qty</td> 
                                         <td>Amount</td>    
                                         <td>Amount paid</td>
@@ -32,8 +32,8 @@
                                 <tbody>
                                     <tr *ngFor="let order of allOrders | paginate : {itemsPerPage:8, currentPage:p} index as i">
                                         <td>{{order.orderdate | date: 'dd/MM/yyyy'}}</td>
+                                        <td>{{order.id}}</td>
                                         <td>{{order.customername}}</td>
-                                        <!-- <td>{{order.productname}}</td> -->
                                         <td>{{order.quantity}}</td>
                                         <td>{{order.productprice}}</td>
                                         <td>{{order.amountpaid}}</td>

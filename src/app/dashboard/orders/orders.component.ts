@@ -36,7 +36,6 @@ export class OrdersComponent implements OnInit {
   getAllOrders(){
     this.orderService.getOrders().subscribe((resp:any)=>{
       this.allOrders = resp.data.results
-      // console.log(this.allOrders)
     })
   }
 

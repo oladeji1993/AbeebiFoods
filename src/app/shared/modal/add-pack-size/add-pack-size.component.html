@@ -14,11 +14,11 @@
                         <option *ngFor="let product of allProducts"  [value]="product.productname">{{product.productname}}</option>
                     </select>
 
-                    <label class="mt-3">Cost of Production</label>
+                    <label class="mt-3">Date</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" formControlName="costofproduction" placeholder="Cost of Production" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('costofproduction')?.invalid}">
-                        <div *ngIf="submitted && productForm.get('costofproduction')?.invalid" class="invalid-feedback">
-                            <div  *ngIf="productForm.get('costofproduction')?.hasError('required')">cost of production is required</div>
+                        <input type="date" class="form-control" formControlName="date" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('date')?.invalid}">
+                        <div *ngIf="submitted && productForm.get('date')?.invalid" class="invalid-feedback">
+                            <div  *ngIf="productForm.get('date')?.hasError('required')">Date is required</div>
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@
             </div>
 
             <div class="col-md-6">
-                <label class="mt-3">Pack Size/SKU</label>
+                <label class="mt-3">Pack Size</label>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" formControlName="packsize" placeholder="Product Name" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('packsize')?.invalid}">
                     <div *ngIf="submitted && productForm.get('packsize')?.invalid" class="invalid-feedback">
@@ -51,11 +51,11 @@
                     </div>
                 </div>
 
-                <label class="mt-3">Quantity Out</label>
+                <label class="mt-3">Damaged Quantity</label>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" formControlName="qtyout" placeholder="Quantity Out" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('qtyout')?.invalid}">
-                    <div *ngIf="submitted && productForm.get('qtyout')?.invalid" class="invalid-feedback">
-                        <div  *ngIf="productForm.get('qtyout')?.hasError('required')">Quantity is required</div>
+                    <input type="text" class="form-control" formControlName="damages" placeholder="Damages Qty" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  productForm.get('damages')?.invalid}">
+                    <div *ngIf="submitted && productForm.get('damages')?.invalid" class="invalid-feedback">
+                        <div  *ngIf="productForm.get('damages')?.hasError('required')">Damaged Quantity is required</div>
                     </div>
                 </div>
             </div>

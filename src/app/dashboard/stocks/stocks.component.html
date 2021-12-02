@@ -30,6 +30,7 @@
                                         <td>Damages</td>
                                         <td>Selling price</td>  
                                         <td>Total qty Produced</td> 
+                                        <td>Status</td>
                                         <td>
                                             Action
                                         </td>    
@@ -38,17 +39,21 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let product of allProductDetails | paginate : {itemsPerPage:8, currentPage:p} index as i">
-                                        <td>-</td>
+                                        <td>{{product.date | date: 'dd/MM/yyyy'}}</td>
                                         <td>{{product.productname}}</td>
                                         <td>{{product.packsize}}</td>
-                                        <td>-</td>
+                                        <td>{{product.damages}}</td>
                                         <td>{{product.sellingprice}}</td>
                                         <td>{{product.quantity}}
+                                        <td>{{product.status}}</td>
                                         <td class="double-btn">
                                             <div>
                                                 <button class="editBtn" (click)="editProduct(product)">edit</button>
                                             </div>
-                                            <div>
+                                            <div *ngIf="showButton">
+                                                <button class="editBtn verify">verify</button>
+                                            </div>
+                                            <div *ngIf="showDelete">
                                                 <button  class="btn-2" (click)="deletePackSize(product.id)">Delete</button>
                                             </div>
                                         </td>

@@ -21,4 +21,12 @@ export class OrderService {
     return this.http.post(`${this.Url}/order`, user);
   }
 
+  showDetails(user:any){
+    return this.http.post(`${this.Url}/paymentID`, user);
+  }
+
+  updateOrder(user:any){
+    return this.http.patch(`${this.Url}/order`, user);
+  }
+
 }

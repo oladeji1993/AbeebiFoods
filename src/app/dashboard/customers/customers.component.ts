@@ -12,7 +12,8 @@ import { ModalService } from 'src/app/Services/modalServices/modal.service';
 export class CustomersComponent implements OnInit {
   p: number = 1;
   data: any;
-  allCustomers: any
+  allCustomers: any;
+  showDeleteBtn = false
 
   constructor(
     private modalService: ModalService,
@@ -22,7 +23,8 @@ export class CustomersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAllCustomers()
+    this.getAllCustomers();
+    this.showDelete();
   }
 
   addCustomers(){
@@ -61,5 +63,13 @@ export class CustomersComponent implements OnInit {
     }, err => {
       this.alert.showError(err, "Error")
     })
+  }
+
+
+  showDelete(){
+    const show = localStorage.getItem("role");
+    if(show == "1"){
+      this.showDeleteBtn = true
+    }
   }
 }

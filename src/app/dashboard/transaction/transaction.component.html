@@ -3,13 +3,78 @@
         <div id="container1" class="col-md-7">
             <div class="card">
                 <div class="card-body">
-                  <label>Product Name:</label>
-                  <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <div class="pay-btn">
-                      <a href="" class="btn btn">Add</a>
-                  </div>
+                    <form [formGroup]="orderDetailsForm" (ngSubmit)="updatePaymentDetails()">
+                        <div id="payment" class="card">
+                            <h2>Update Payment</h2>
+                            <div class="input-group mb-3">
+                                <label class="input-group-text" for="inputGroupSelect01">Select Order ID</label>
+                                <select class="form-select" id="inputGroupSelect01" #mySelect (change)='onOptionsSelected(mySelect.value)' formControlName="customername">
+                                  <option *ngFor="let order of allOrders"  [value]="order.id">{{order.id}}</option>
+                                </select>
+                            </div>
+            
+                            <div *ngIf="paymentDetails" id="payment" class="card">
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">product Name</span>   
+                                        <input type="text" formControlName="productname" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Order date</span>   
+                                        <input type="text" formControlName="orderdate" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">packsize</span>
+                                        <input type="text" formControlName="packsize" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Amount</span>
+                                        <input type="number" formControlName="productprice" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">quantity</span>
+                                        <input type="number" formControlName="quantity" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Customer Name</span>   
+                                        <input type="text" formControlName="customername" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Amount Paid</span>
+                                        <input type="number" formControlName="amountpaid" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+            
+                                <div>
+                                    <div class="input-group input-group-sm mb-3">
+                                        <span class="input-group-text" id="inputGroup-sizing-sm">Balance</span>
+                                        <input type="number" formControlName="tobalance" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                                    </div>
+                                </div>
+                                <div class="save-btn">
+                                    <button class="btn btn">Update Record</button>
+                                </div>   
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -20,19 +85,25 @@
                 <div class="input-group mb-3">
                     <label class="input-group-text" for="inputGroupSelect01">Customer</label>
                     <select class="form-select" id="inputGroupSelect01" formControlName="customername">
-                      <option selected>Select customer name</option>
                       <option *ngFor="let customer of allCustomers"  [value]="customer.firstname">{{customer.firstname}}</option>
                     </select>
                 </div>
 
                 <div id="payment" class="card">
                     <div class="input-group mb-3">
-                        <label class="input-group-text" for="inputGroupSelect01">Payment Type</label>
+                        <label class="input-group-text" for="inputGroupSelect01">Payment type</label>
                         <select class="form-select" id="inputGroupSelect01" formControlName="paymenttype">
                         <option value="pos">POS</option>
                         <option value="cash">CASH</option>
                         <option value="transfer">TRANSFER</option>
                         </select>
+                    </div>
+
+                    <div>
+                        <div class="input-group input-group-sm mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-sm">Payment receipt date</span>
+                            <input type="date" formControlName="datereceived" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
                     </div>
 
                     <div>
@@ -47,5 +118,5 @@
                 </div>
                 </div>
             </form>
+        </div>
     </div>
-</div>

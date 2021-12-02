@@ -31,12 +31,11 @@ export class AddPackSizeComponent implements OnInit {
   ngOnInit(): void {
     this.productForm = this.fb.group({
       productname: ['', Validators.compose([Validators.required])],
-      costofproduction: ['', Validators.compose([Validators.required])],
       sellingprice: ['', Validators.compose([Validators.required])],
       packsize: ['', Validators.compose([Validators.required])],
       quantity: ['', Validators.compose([Validators.required])],
-      qtyout: ['', Validators.compose([Validators.required])],
-
+      damages: ['', Validators.compose([Validators.required])],
+      date: ['', Validators.compose([Validators.required])],
     })
 
     if(this.info) {
@@ -53,14 +52,14 @@ export class AddPackSizeComponent implements OnInit {
     }else{
       if(this.info){
         this.title = 'update'
-        const {productname, costofproduction, sellingprice, packsize, quantity, qtyout, id} = this.productForm.value;
+        const {productname, date, sellingprice, packsize, quantity, damages, id} = this.productForm.value;
         const data = {
           productname,
-          costofproduction,
+          date,
           sellingprice,
           packsize,
           quantity,
-          qtyout,
+          damages,
           id: this.info.id
         }
         this.product.updatePackSize(data).subscribe((response:any) => {

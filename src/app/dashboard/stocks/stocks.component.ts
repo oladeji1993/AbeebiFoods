@@ -13,7 +13,10 @@ import { AlertService } from 'src/app/Services/alert/alert.service';
 })
 export class StocksComponent implements OnInit {
   p: number = 1;
-  allProductDetails!: any[]
+  allProductDetails!: any[];
+  showButton = false;
+  showDelete = false;
+
   constructor(
     public dialog: MatDialog,
     private matDialog: MatDialog,
@@ -25,6 +28,7 @@ export class StocksComponent implements OnInit {
 
   ngOnInit(): void {
     this.productDetails()
+    this.showBtn()
   }
 
   addProduct(){
@@ -76,6 +80,15 @@ export class StocksComponent implements OnInit {
     this.product.getPackSize().subscribe((resp:any) =>{
       this.allProductDetails = resp.data.results
     })
+  }
+
+  showBtn(){
+    const available = localStorage.getItem('role')
+    if(available == "3"){
+      this.showButton = true
+    }else if(available == "1"){
+      this.showDelete = true
+    }
   }
   
 
