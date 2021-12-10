@@ -39,4 +39,8 @@ export class ProductService {
   deletePackSize(id:any){
     return this.http.delete(`${this._productUrl}/createPacksize/`+id);
   }
+
+  updateStatus(data:any){
+    return this.http.patch(`${this._productUrl}/products`, data);
+  }
 }

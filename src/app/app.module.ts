@@ -18,6 +18,7 @@ import { OrderComponent } from './shared/modal/order/order.component';
 import { ProcurementComponent } from './shared/modal/procurement/procurement.component';
 import { IsLoggedIn } from './shared/utilities/is-logged-in';
 import { AuthGuard } from './Services/auth.guard';
+import { CartComponent } from './shared/modal/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AuthGuard } from './Services/auth.guard';
     AddPackSizeComponent,
     CustomerComponent,
     OrderComponent,
-    ProcurementComponent
+    ProcurementComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

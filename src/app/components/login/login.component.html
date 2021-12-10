@@ -19,7 +19,7 @@
               </div>
               <div class="form-group" id="input">
                 <label for="exampleInputPassword1">Password</label>
-                <a href="#" style="float:right;font-size:12px;">Forgot password?</a>
+                <!-- <a href="#" style="float:right;font-size:12px;">Forgot password?</a> -->
                 <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formControl.password.errors }">
                 <div *ngIf="submitted && formControl.password.errors" class="invalid-feedback">
                   <div *ngIf="formControl.password.errors.required">Password is required</div>

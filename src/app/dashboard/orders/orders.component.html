@@ -5,10 +5,9 @@
         <div class="operations">
             <div>
                 <button class="editBtn excel" (click)="placeOrder()">Place Order</button>
-                <!-- <button class="editBtn">print</button> -->
             </div>
             <div>
-                <input id="filter" placeholder="search" type="text"/>
+                <!-- <input id="filter" placeholder="search" type="text"/> -->
             </div>
         </div>
     <div class="mt-2">  
@@ -25,7 +24,7 @@
                                         <td>Amount</td>    
                                         <td>Amount paid</td>
                                         <td>Balance</td>
-                                        <td>Action</td>
+                                        
 
                                     </tr>
                                 </thead>
@@ -38,10 +37,6 @@
                                         <td>{{order.productprice}}</td>
                                         <td>{{order.amountpaid}}</td>
                                         <td>{{order.tobalance}}</td>
-                                        <td>
-                                            <button class="editBtn">edit</button>
-                                            <button class="editBtn ml-4">Details</button>
-                                        </td>
                                     </tr>
                             </tbody>
                             <pagination-controls (pageChange)="p = $event"></pagination-controls>

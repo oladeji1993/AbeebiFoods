@@ -20,6 +20,10 @@ export class CustomerService {
     return this.http.post(`${this.Url}/customer`, user);
   }
 
+  fetchCustomerTransations(user:any){
+    return this.http.post(`${this.Url}/transaction`, user);
+  }
+
   deleteCustomer(id:any){
     return this.http.delete(`${this.Url}/customer/`+id);
   }

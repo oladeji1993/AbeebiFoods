@@ -14,7 +14,7 @@
                 <button class="editBtn">print</button> -->
             </div>
             <div>
-                <input id="filter" placeholder="search" type="text"/>
+                <!-- <input id="filter" placeholder="search" type="text"/> -->
             </div>
         </div>
     <div class="mt-2">  
@@ -51,7 +51,7 @@
                                                 <button class="editBtn" (click)="editProduct(product)">edit</button>
                                             </div>
                                             <div *ngIf="showButton">
-                                                <button class="editBtn verify">verify</button>
+                                                <button (click)="verify(product)" class="editBtn verify">verify</button>
                                             </div>
                                             <div *ngIf="showDelete">
                                                 <button  class="btn-2" (click)="deletePackSize(product.id)">Delete</button>

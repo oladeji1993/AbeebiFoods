@@ -37,8 +37,8 @@ export class CustomerComponent implements OnInit {
       lastname: ['', Validators.compose([Validators.required])],
       address: ['', Validators.compose([Validators.required])],
       customertype: ['', Validators.compose([Validators.required])],
-      totalamount: ['', Validators.compose([Validators.required])],
-      totalpaid: ['', Validators.compose([Validators.required])],
+      companyname: ['', Validators.compose([Validators.required])],
+      regdate: [''],
     })
 
     if(this.data){

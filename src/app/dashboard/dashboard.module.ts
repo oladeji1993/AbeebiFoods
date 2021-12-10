@@ -14,7 +14,6 @@ import { TransactionComponent } from './transaction/transaction.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 import { PaymentReportsComponent } from './payment-reports/payment-reports.component';
 import { StocksComponent } from './stocks/stocks.component';
-import { ReturnsComponent } from './returns/returns.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -23,6 +22,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProcurementsComponent } from './procurements/procurements.component';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 import { AuthGuard } from '../Services/auth.guard';
+import { CartComponent } from './cart/cart.component';
+import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
 
 
 
@@ -36,11 +37,12 @@ import { AuthGuard } from '../Services/auth.guard';
     SalesReportComponent,
     PaymentReportsComponent,
     StocksComponent,
-    ReturnsComponent,
     RegisterComponent,
     CustomersComponent,
     OrdersComponent,
     ProcurementsComponent,
+    CartComponent,
+    CustomerTransactionsComponent,
   ],
   imports: [
     CommonModule,

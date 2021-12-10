@@ -7,7 +7,7 @@
                 <button class="editBtn excel" (click)="addCustomers()">Add New Customer</button>
             </div>
             <div>
-                <input id="filter" placeholder="search" type="text"/>
+                <!-- <input id="filter" placeholder="search" type="text"/> -->
             </div>
         </div>
     <div class="mt-2">  
@@ -17,7 +17,8 @@
                             <table width="100%">
                                 <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
                                     <tr style="padding:30px">
-                                        <td>Name</td>    
+                                        <td>Firstname</td>  
+                                        <td>Lastname</td>      
                                         <td>Company Name</td>
                                         <td>Phone</td>
                                         <td>Email</td>
@@ -28,8 +29,9 @@
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let customer of allCustomers | paginate : {itemsPerPage:8, currentPage:p} index as i">
-                                        <td>{{customer.firstname}} {{customer.lastname}}</td>
-                                        <td>-</td>
+                                        <td>{{customer.firstname}}</td>
+                                        <td>{{customer.lastname}}</td>
+                                        <td>{{customer.companyname}}</td>
                                         <td>{{customer.phone}}</td>
                                         <td>{{customer.email}}</td>
                                         <td>{{customer.address}}</td>
@@ -39,6 +41,9 @@
                                             </div>
                                             <div *ngIf="showDeleteBtn">
                                                 <button  class="btn-2" (click)="deleteCustomer(customer.id)">Delete</button>
+                                            </div>
+                                            <div>
+                                                <button style="margin-left:10px" (click)="showTransactions(customer)" class="editBtn">Details</button>
                                             </div>
                                         </td>
                                     </tr>

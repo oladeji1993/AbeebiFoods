@@ -1,37 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { AlertService } from 'src/app/Services/alert/alert.service';
 import { CustomerService } from 'src/app/Services/customer/customer.service';
 import { OrderService } from 'src/app/Services/order/order.service';
 import { ProductService } from 'src/app/Services/product/product.service';
-import { AddPackSizeComponent } from '../add-pack-size/add-pack-size.component';
-
 
 @Component({
-  selector: 'app-order',
-  templateUrl: './order.component.html',
-  styleUrls: ['./order.component.scss']
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss']
 })
-export class OrderComponent implements OnInit {
+export class CartComponent implements OnInit {
 
+  cartParams:any
+  title:any;
   allProducts!: any[];
+  selected: any = [];
   allCustomers!: any[];
   public submitted = false;
   productForm!: FormGroup;
   info: any;
-  title!: string;
-  orderParams: any;
-  cartItems: any = [];
-
+  orderParams: any
 
   constructor(
-    public dialogRef: MatDialogRef<AddPackSizeComponent>,
+    public dialogRef: MatDialogRef<CartComponent>,
     private product: ProductService,
     public fb: FormBuilder,
     private customer: CustomerService,
-    private router: Router,
     private alert: AlertService,
     private orderService: OrderService
 
@@ -48,6 +44,9 @@ export class OrderComponent implements OnInit {
       customername: ['', Validators.compose([Validators.required])],
       packsize: ['', Validators.compose([Validators.required])],
       tobalance: ['', Validators.compose([Validators.required])],
+
+
+
     })
 
     if(this.info) {
@@ -74,33 +73,10 @@ export class OrderComponent implements OnInit {
     })
   }
 
-  addToCart(){
-    this.submitted = true
-    if(this.productForm.invalid){
-      return
-    }else{
-      this.cartItems.push(this.productForm.value)
-      this.productForm.reset()
-      this.formReset(this.productForm)
-    }
-  }
-
-  formReset(form:any) {
-    form.reset();
-    Object.keys(form.controls).forEach(key => {
-      form.get(key).setErrors(null) ;
-    });
-}
-
   order(){
     this.submitted = true
     if(this.productForm.invalid){
       return
-    }if(this.cartItems.length > 1){
-      console.log("hello")
-      this.orderService.cartItems.next(this.cartItems)
-      this.router.navigate(['/Dashboard/cart'])
-      this.closeModal(true);
     }else{
       this.orderService.addOrder(this.productForm.value).subscribe((data:any)=>{
         if(data.status === 200){
@@ -113,6 +89,20 @@ export class OrderComponent implements OnInit {
       }, err =>{
         this.alert.showError(err, "Error")
       })
+    }
+  }
+
+  checkValue(event:any, product:any) {
+    console.log(event.target.checked)
+    if (event.target.checked == true) {
+      this.selected.push(product);
+      console.log(this.selected)
+    } else {
+      this.selected.map((i:any) => {
+        if (i == product) {
+          this.selected.splice(this.selected.indexOf(i), 1);
+        }
+      });
     }
   }
 

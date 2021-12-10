@@ -22,7 +22,6 @@ export class HasRoleGuardGuard implements CanActivate {
     const localRoles = ['1','2','3','4','5']
     const expectedRoles = route.data.role;
     const matchRoute = localRoles.findIndex(role => expectedRoles.indexOf(role) !== -1);
-    console.log(matchRoute)
     return matchRoute < 0 ? false : true
   }
   

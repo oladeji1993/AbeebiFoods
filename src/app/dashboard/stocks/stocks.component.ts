@@ -90,6 +90,22 @@ export class StocksComponent implements OnInit {
       this.showDelete = true
     }
   }
+
+  verify(product:any){
+    const data = {
+      id: product.id
+    }
+    this.product.updateStatus(data).subscribe((data:any) =>{
+      if(data.status === 200){
+        this.alert.showSuccess(data.message, "success")
+        this.productDetails()
+      }else{
+        this.alert.showError(data.message, "Error")
+      }
+    }, err => {
+      this.alert.showError(err, "Error")
+    })
+  }
   
 
 }

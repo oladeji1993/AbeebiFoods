@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { ProcurementsComponent } from 'src/app/dashboard/procurements/procurements.component';
+import { CartComponent } from 'src/app/shared/modal/cart/cart.component';
 import { CustomerComponent } from 'src/app/shared/modal/customer/customer.component';
 import { OrderComponent } from 'src/app/shared/modal/order/order.component';
 import { ProcurementComponent } from 'src/app/shared/modal/procurement/procurement.component';
@@ -51,7 +52,7 @@ export class ModalService {
     dialogRef = this.matDialog.open(OrderComponent);
     dialogRef.componentInstance.orderParams = orderParams;
     dialogRef.componentInstance.title = title;
-    dialogRef.updateSize('600px');
+    dialogRef.updateSize('800px');
     dialogRef.addPanelClass([
       'animate__animated',
       'animate__zoomIn',
@@ -63,6 +64,19 @@ export class ModalService {
     let dialogRef: MatDialogRef<ProcurementComponent>;
     dialogRef = this.matDialog.open(ProcurementComponent);
     dialogRef.componentInstance.procurementParams = procurementParams;
+    dialogRef.componentInstance.title = title;
+    dialogRef.updateSize('600px');
+    dialogRef.addPanelClass([
+      'animate__animated',
+      'animate__zoomIn',
+    ]);
+    return dialogRef.afterClosed();
+  }
+
+  cart( title:string, cartParams?: any,) {
+    let dialogRef: MatDialogRef<CartComponent>;
+    dialogRef = this.matDialog.open(CartComponent);
+    dialogRef.componentInstance.cartParams = cartParams;
     dialogRef.componentInstance.title = title;
     dialogRef.updateSize('600px');
     dialogRef.addPanelClass([

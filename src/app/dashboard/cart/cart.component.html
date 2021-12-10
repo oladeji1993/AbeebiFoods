@@ -1,0 +1,33 @@
+<section class="cart_section">
+    <div class="container">
+        <h2>Cart</h2>
+        <div>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Remove Item</th>
+                </tr>
+                <tr *ngFor="let cart of availableCartItems">
+                    <td>{{cart.productname}}</td>
+                    <td style="text-align: center !important;">{{cart.productprice}}</td>
+                    <td style="text-align: center !important;">
+                        <div class="col-md-3" style="padding:0px !important">
+                            <div style="display: flex; width:100px; padding: 10px 0px; font-size:16px; justify-content: space-evenly;  border: 1px solid black"> 
+                                <div style="cursor: pointer; font-size:35px" (click)="decreaseQty()">-</div>
+                                  <div>{{cart.quantity}}</div>
+                                <div style="cursor: pointer;  font-size:20px" (click)="increaseQty()">+</div>
+                            </div>
+                        </div>
+                    </td>   
+                    <td style="text-align: center !important; color:red;font-size: 120%; cursor: pointer;" (click)="removeItem()"><i class="far fa-trash-alt"></i></td>
+                </tr>
+            </table>
+    
+            <div style="display: flex; margin-top: 1%; float: right;">
+                <div style="background-color:#fcb800; color:#fff; border-radius: 5px;"> <button type="button" style="font-weight: 500;" class="btn btn btn-md">Order</button></div>
+            </div>
+        </div>
+    </div>
+</section>

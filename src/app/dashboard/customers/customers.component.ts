@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertService } from 'src/app/Services/alert/alert.service';
 import { AuthService } from 'src/app/Services/auth/auth.service';
 import { CustomerService } from 'src/app/Services/customer/customer.service';
@@ -20,6 +21,7 @@ export class CustomersComponent implements OnInit {
     private customerService: CustomerService,
     private alert: AlertService,
     private auth: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,11 @@ export class CustomersComponent implements OnInit {
     this.customerService.getCustomers().subscribe((response:any) => {
       this.allCustomers = response.data
     })
+  }
+
+  showTransactions(customer:any){
+    localStorage.setItem('name', customer.firstname)
+    this.router.navigate(['/Dashboard/customer-transactions'])
   }
 
 

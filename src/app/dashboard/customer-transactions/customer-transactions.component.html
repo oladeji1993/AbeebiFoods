@@ -1,0 +1,30 @@
+<section class="cart_section">
+    <div class="container">
+        <div class="back">
+            <div (click)="back()" id="back">Back</div>
+            <div><h2>NAME: {{customername}}</h2>
+            </div>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <th>Order Date</th>
+                    <th>Product</th>
+                    <th>Amount Paid</th>
+                    <th>Amount to balance</th>
+                </tr>
+                <tr *ngFor="let customer of customerDetails">
+                    <td>{{customer.orderdate}}</td>
+                    <td>{{customer.productname}}</td>
+                    <td>{{customer.amountpaid}}</td>
+                    <td>{{customer.tobalance}}</td>
+
+                </tr>
+            </table>
+    
+            <div style="display: flex; margin-top: 1%; float: right;">
+                <div style="background-color:#01A756; border-radius: 5px;"><button type="button" style="font-weight: 500;color:#fff !important;" class="btn btn btn-md">Total Payment Made: #{{ totalPayment}}</button></div>
+            </div>
+        </div>
+    </div>
+</section>

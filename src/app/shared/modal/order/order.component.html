@@ -4,7 +4,7 @@
 </div>
 
 <div>
-    <form [formGroup]="productForm" (ngSubmit)="order()">
+    <form [formGroup]="productForm" (ngSubmit)="addToCart()">
         <div class="row">
             <div class="col-md-6">
                 <div class="card-body">
@@ -44,7 +44,6 @@
             <div class="col-md-6">
                 <label class="mt-3">Customer Name</label>
                 <select class="form-select" aria-label="Default select example" formControlName="customername">
-                    <option selected>Select Customer</option>
                     <option *ngFor="let customer of allCustomers"  [value]="customer.firstname">{{customer.firstname}}</option>
                 </select>
 
@@ -72,7 +71,8 @@
             </div>
         </div>
         <div class="pay-btn">
-            <button type="submit" class="btn btn-success">Order</button>
+            <button id="addToCart" type="submit" class="btn btn-success">Add To Cart</button>
+            <button (click)="order()" class="btn btn-success">Order<span class="cart-count">{{ cartItems.length }}</span></button>
         </div>
     </form>
 </div>

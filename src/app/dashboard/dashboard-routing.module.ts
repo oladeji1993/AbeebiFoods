@@ -4,7 +4,6 @@ import { HomeComponent } from 'src/app/dashboard/home/home.component';
 import { DashboardComponent } from './dashboard.component';
 import { PaymentReportsComponent } from './payment-reports/payment-reports.component';
 import { RegisterComponent } from './../dashboard/register/register.component';
-import { ReturnsComponent } from './returns/returns.component';
 import { SalesReportComponent } from './sales-report/sales-report.component';
 import { StocksComponent } from './stocks/stocks.component';
 import { TransactionComponent } from './transaction/transaction.component';
@@ -15,6 +14,8 @@ import { LoginComponent } from '../components/login/login.component';
 import { AuthGuard } from '../Services/auth.guard';
 import { HasRoleGuardGuard } from '../Services/has-role-guard.guard';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
+import { CartComponent } from './cart/cart.component';
+import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
 
 const routes: Routes = [
   { 
@@ -77,12 +78,14 @@ const routes: Routes = [
         }
       },
       {
-        path: 'return',
-        component: ReturnsComponent,
-        canActivate: [AuthGuard, HasRoleGuardGuard],
-        data: {
-          role: ["1"]
-        }
+        path: 'cart',
+        component: CartComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'customer-transactions',
+        component: CustomerTransactionsComponent,
+        canActivate: [AuthGuard],
 
 
       },
@@ -113,7 +116,6 @@ const routes: Routes = [
         data: {
           role: ['1', '2']
         }
-
       }
     ]
   },

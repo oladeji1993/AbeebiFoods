@@ -23,6 +23,15 @@ export class OrdersComponent implements OnInit {
     this.getAllOrders()
   }
 
+  addToCart(){
+    const title = "Add Product to cart"
+    this.modalService.cart(title).subscribe(data =>{
+      if(data && data.data) {
+        // this.getAllProcurements()
+      }
+    })
+  }
+
 
   placeOrder(){
     const title = "Order"
@@ -38,11 +47,5 @@ export class OrdersComponent implements OnInit {
       this.allOrders = resp.data.results
     })
   }
-
-  // Transactions = [
-  //   {name: "ola", phone: "08165552545", date: "20/10/2021", product_name:"Abebi Poundo yam 0.9kg", amount: "300,000", qty:"2"},
-  //   {name: "Dayo", phone: "08165552545", date: "20/10/2021", product_name:"Abebi Poundo yam 0.9kg", amount: "300,000", qty:"4"},
-  //   {name: "Seun", phone: "08165552545", date: "20/10/2021", product_name:"Abebi Poundo yam 0.9kg", amount: "300,000", qty:"1"},
-  // ]
 
 }
