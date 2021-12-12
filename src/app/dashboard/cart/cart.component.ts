@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertService } from 'src/app/Services/alert/alert.service';
 import { OrderService } from 'src/app/Services/order/order.service';
 
 
@@ -10,9 +12,15 @@ import { OrderService } from 'src/app/Services/order/order.service';
 export class CartComponent implements OnInit {
 
   availableCartItems: any = [];
+  retrivedCartItems: any = [];
+
 
   constructor(
-    private orderService: OrderService
+    private router: Router,
+    private orderService: OrderService,
+    private alert: AlertService,
+
+
   ) { }
 
   ngOnInit(): void {
@@ -21,70 +29,57 @@ export class CartComponent implements OnInit {
 
 
   getCartItems(){
-    this.orderService.cartItems.subscribe((data:any)=>{
-      this.availableCartItems = data;
-      console.log(this.availableCartItems)
+    this.retrivedCartItems = localStorage.getItem("cartItems");
+    this.availableCartItems = JSON.parse(this.retrivedCartItems)
+  }
+
+  back(){
+    this.router.navigate(['/Dashboard/order'])
+  }
+  
+  increaseQty(cart:any){
+    let index = this.availableCartItems.indexOf(cart);
+    for(let i=0; i<this.availableCartItems.length; i++){
+      if(index === i){
+        this.availableCartItems[i].quantity++
+      }
+    }
+  }
+
+  decreaseQty(cart:any){
+    console.log(cart)
+    let index = this.availableCartItems.indexOf(cart);
+    for(let i=0; i<this.availableCartItems.length; i++){
+      if(index === i){
+        this.availableCartItems[i].quantity--
+      }
+    }
+  }
+
+
+  removeItem(cart:any){
+    let index = this.availableCartItems.indexOf(cart);
+    for(let i=0; i<this.availableCartItems.length; i++){
+      if(index === i){
+        this.availableCartItems.splice(i,1)
+      }
+    }
+  }
+
+
+  addOrder(){
+    this.orderService.addOrder(this.availableCartItems).subscribe((result:any)=>{
+      if(result.status === 200){
+        this.alert.showSuccess(result.message, "success")
+        localStorage.removeItem('cartItems')
+        this.getCartItems()
+        return
+      }else{
+        this.alert.showError(result.message, "Error")
+      }
+    }, err =>{
+      this.alert.showError(err, "Error")
     })
-  }
-
-
-  
-  increaseQty(){
-    // for(let i=0; i<this.getCartDetails.length; i++){
-    //   if(this.getCartDetails[i].id === id){
-    //     this.getCartDetails[i].qty =  parseInt(qty) + 1
-    //   }
-    // }
-    // localStorage.setItem('cart', JSON.stringify(this.getCartDetails))
-    // this.loadTotal();
-  }
-
-  decreaseQty(){
-    // for(let i=0; i<this.getCartDetails.length; i++){
-    //   if(this.getCartDetails[i].id === id){
-    //     if(qty != 1){
-    //       this.getCartDetails[i].qty =  parseInt(qty) - 1
-    //     }
-    //   }
-    // }
-    // localStorage.setItem('cart', JSON.stringify(this.getCartDetails))
-    // this.loadTotal();
-  }
-
-
-  total: number = 0;
-  loadTotal(){
-    // if(localStorage.getItem('cart')){
-    //   this.getCartDetails = JSON.parse(localStorage.getItem('cart'));
-    //   this.total = this.getCartDetails.reduce(function(acc, val){
-    //     return acc + (val.price * val.qty);
-    //   }, 0)
-    // }
-  }
-
-
-  removeAll(){
-    // localStorage.removeItem('cart');
-    // this.getCartDetails = [];
-    // this.total = 0;
-    // this.cartNumber = 0;
-    // this.addToCartService.cartSubject.next(this.cartNumber)
-  }
-
-
-  removeItem(){
-    // if(localStorage.getItem('cart')){
-    //   this.getCartDetails = JSON.parse(localStorage.getItem('cart'))
-  
-    //   for(let i=0; i < this.getCartDetails.length; i++){
-    //     if(getCartDetail === this.getCartDetails[i].id){
-    //       this.getCartDetails.splice(i, 1);
-    //       localStorage.setItem('cart', JSON.stringify(this.getCartDetails))
-    //       this.loadTotal();
-    //       this.cartNumberFunc();
-    //   }
-    // }
-    // }
   }
 
 }

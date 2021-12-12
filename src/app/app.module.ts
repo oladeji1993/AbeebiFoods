@@ -19,6 +19,8 @@ import { ProcurementComponent } from './shared/modal/procurement/procurement.com
 import { IsLoggedIn } from './shared/utilities/is-logged-in';
 import { AuthGuard } from './Services/auth.guard';
 import { CartComponent } from './shared/modal/cart/cart.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { CartComponent } from './shared/modal/cart/cart.component';
     FormsModule,
     MatDialogModule,
     AppRoutingModule,
+    NgxSpinnerModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(), // ToastrModule added

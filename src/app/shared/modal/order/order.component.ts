@@ -24,6 +24,7 @@ export class OrderComponent implements OnInit {
   title!: string;
   orderParams: any;
   cartItems: any = [];
+  singleOrder: any = []
 
 
   constructor(
@@ -89,7 +90,7 @@ export class OrderComponent implements OnInit {
     form.reset();
     Object.keys(form.controls).forEach(key => {
       form.get(key).setErrors(null) ;
-    });
+  });
 }
 
   order(){
@@ -97,12 +98,12 @@ export class OrderComponent implements OnInit {
     if(this.productForm.invalid){
       return
     }if(this.cartItems.length > 1){
-      console.log("hello")
-      this.orderService.cartItems.next(this.cartItems)
+      localStorage.setItem("cartItems", JSON.stringify(this.cartItems))
       this.router.navigate(['/Dashboard/cart'])
       this.closeModal(true);
     }else{
-      this.orderService.addOrder(this.productForm.value).subscribe((data:any)=>{
+      this.singleOrder.push(this.productForm.value)
+      this.orderService.addOrder(this.singleOrder).subscribe((data:any)=>{
         if(data.status === 200){
           this.alert.showSuccess(data.message, "success")
           this.closeModal(true);

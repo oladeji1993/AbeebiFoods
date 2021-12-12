@@ -17,3 +17,13 @@ table {
   .cart_section{
     padding:40px 0px;
   }
+
+  .header{
+      display:flex;
+      justify-content:space-between;
+  }
+
+  .back{
+    cursor: pointer;
+    font-size:20px;
+  }

@@ -4,7 +4,7 @@
         <!-- <a class="navbar-brand" href="#" id="logo">KP <span>Initiatives</span></a> -->
     </div>
     <div class="mt-5">
-        <div *ngIf="show" mat-list-item [routerLink]="['/Dashboard/home']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+        <div *ngIf="showReg" mat-list-item [routerLink]="['/Dashboard/home']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tachometer-alt"></i>
             <a style="text-decoration: none; color:#fff; line-height: 1; font-size: 14px;cursor:pointer">Dashboard</a>
         </div>
@@ -42,7 +42,7 @@
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Orders</a>
         </div>
 
-        <div *ngIf="show" [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+        <div *ngIf="showReg" [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
             <i style="color:#fff; padding-right:10px" class="fas fa-tv"></i>
             <a style="text-decoration: none; color:#fff; font-size: 14px;">Register User</a>
         </div>

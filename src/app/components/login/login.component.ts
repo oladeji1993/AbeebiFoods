@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/Services/auth/auth.service';
 import { AlertService } from 'src/app/Services/alert/alert.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 
 @Component({
@@ -21,10 +23,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public fb: FormBuilder,
     private auth: AuthService,
-    private alert: AlertService
-
-
-
+    private alert: AlertService,
+    private spinner: NgxSpinnerService,
   ) { }
 
   ngOnInit() {
@@ -47,21 +47,24 @@ export class LoginComponent implements OnInit {
     if(this.signinForm.invalid){
       return;
     }else{
+      this.spinner.show()
       this.auth.loginUser(this.signinForm.value).subscribe((data:any)=>{
-        console.log(data);
         if(data.status === 200){
           this.token = data.token;
           this.role = data.role 
           localStorage.setItem('token',  this.token);
           localStorage.setItem('role',  this.role);
+          localStorage.setItem('user',  data.data.firstname);
+          this.spinner.hide()
           this.router.navigate(['/Dashboard'])
           this.alert.showSuccess(data.message, 'Success');
         }else{
+          this.spinner.hide()
           this.router.navigate(['home/login'])
           this.alert.showError(data.message, 'Error');
         }
       }, err =>{
-        console.log(err)
+        this.spinner.hide()
         let error = err.error
         this.alert.showError(error.message, 'Error');
         this.router.navigate(['home/login'])

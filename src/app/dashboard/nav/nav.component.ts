@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   show = true;
+  showReg = true
   showMarketer = true;
   procurement = true;
   showprodManager = true;
@@ -26,6 +27,7 @@ export class NavComponent implements OnInit {
     const role = localStorage.getItem('role')
     if(role == "2"){
       this.show = false;
+      this.showReg = false;
       this.procurement = true;
       this.showMarketer = false;
       this.showprodManager = false;
@@ -34,6 +36,7 @@ export class NavComponent implements OnInit {
 
     }else if(role == "1"){
       this.show = true;
+      this.showReg = true;
       this.showMarketer = true;
       this.procurement = true;
       this.showprodManager = true
@@ -43,6 +46,8 @@ export class NavComponent implements OnInit {
       this.showMarketer = true;
       this.showprodManager = false;
       this.showprodManagerandQuality = false
+      this.showReg = false;
+
 
 
     }else if(role == "4"){
@@ -50,7 +55,9 @@ export class NavComponent implements OnInit {
     this.procurement = false;
     this.showMarketer = false;
     this.showprodManager = true;
-    this.showprodManagerandQuality = true
+    this.showprodManagerandQuality = true;
+    this.showReg = false;
+
 
 
   }else if(role == "3"){
@@ -58,14 +65,25 @@ export class NavComponent implements OnInit {
     this.procurement = true;
     this.showMarketer = false;
     this.showprodManager = false;
-    this.showprodManagerandQuality = true
+    this.showprodManagerandQuality = true;
+    this.showReg = false;
+
+
+  }else if(role == "6"){
+    this.show = true;
+    this.procurement = false;
+    this.showMarketer = false;
+    this.showprodManager = false;
+    this.showprodManagerandQuality = false;
+    this.showReg = false;
+
   }
 }
 
   logOut(){
-    console.log("hello")
     localStorage.removeItem('role');
     localStorage.removeItem('token')
+    localStorage.removeItem('user')
     this.router.navigate(['Dashboard/login']);
   }
 

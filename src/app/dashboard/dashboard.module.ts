@@ -23,6 +23,7 @@ import { ProcurementsComponent } from './procurements/procurements.component';
 import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 import { AuthGuard } from '../Services/auth.guard';
 import { CartComponent } from './cart/cart.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
 
 
@@ -53,6 +54,7 @@ import { CustomerTransactionsComponent } from './customer-transactions/customer-
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    NgxSpinnerModule,
     HttpClientModule,
     NgxPaginationModule
   ],

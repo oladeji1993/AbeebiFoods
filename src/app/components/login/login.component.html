@@ -19,7 +19,6 @@
               </div>
               <div class="form-group" id="input">
                 <label for="exampleInputPassword1">Password</label>
-                <!-- <a href="#" style="float:right;font-size:12px;">Forgot password?</a> -->
                 <input type="password" class="form-control form-control-sm" id="exampleInputPassword1" formControlName="password" [ngClass]="{ 'is-invalid': submitted && formControl.password.errors }">
                 <div *ngIf="submitted && formControl.password.errors" class="invalid-feedback">
                   <div *ngIf="formControl.password.errors.required">Password is required</div>
@@ -27,14 +26,12 @@
                 </div>
               </div>
               <button id="signUp" type="submit" class="btn btn-block">Sign in</button>
-              
-              <!-- <div class="sign-up" style="display: flex;">
-                Don't have an account? <div class="px-4" style="text-decoration: underline; color:blue; cursor: pointer;" (click)="signUp()">Create One</div>
-              </div> -->
             </form>
           </div>
         </div>
-      <!-- </div> -->
       </div>
     </div>  
 </div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="medium" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+</ngx-spinner>

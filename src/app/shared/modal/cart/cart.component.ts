@@ -30,8 +30,6 @@ export class CartComponent implements OnInit {
     private customer: CustomerService,
     private alert: AlertService,
     private orderService: OrderService
-
-
   ) { }
 
   ngOnInit(): void {
@@ -44,7 +42,6 @@ export class CartComponent implements OnInit {
       customername: ['', Validators.compose([Validators.required])],
       packsize: ['', Validators.compose([Validators.required])],
       tobalance: ['', Validators.compose([Validators.required])],
-
 
 
     })

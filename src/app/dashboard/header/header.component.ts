@@ -10,16 +10,23 @@ export class HeaderComponent implements OnInit {
   sideBarOpen: boolean = false;
   show = true;
   showMarketer = true;
+  showReg = true
   procurement = true;
   showprodManager = true;
-  showprodManagerandQuality = true
+  showprodManagerandQuality = true;
+  loggedInUser: any
 
   constructor(
     private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.checkRole()
+    this.checkRole();
+    this.getUser()
+  }
+
+  getUser(){
+    this.loggedInUser = localStorage.getItem('user')
   }
 
   sideBar(){
@@ -39,20 +46,26 @@ export class HeaderComponent implements OnInit {
       this.procurement = true;
       this.showMarketer = false;
       this.showprodManager = false;
-      this.showprodManagerandQuality = false
+      this.showprodManagerandQuality = false;
+      this.showReg = false
+
 
 
     }else if(role == "1"){
       this.show = true;
       this.showMarketer = true;
       this.procurement = true;
-      this.showprodManager = true
+      this.showprodManager = true;
+      this.showReg = true
+
     }else if(role == "5"){
       this.show = false;
       this.procurement = false;
       this.showMarketer = true;
       this.showprodManager = false;
-      this.showprodManagerandQuality = false
+      this.showprodManagerandQuality = false;
+      this.showReg = false
+
 
 
     }else if(role == "4"){
@@ -60,7 +73,9 @@ export class HeaderComponent implements OnInit {
     this.procurement = false;
     this.showMarketer = false;
     this.showprodManager = true;
-    this.showprodManagerandQuality = true
+    this.showprodManagerandQuality = true;
+    this.showReg = false
+
 
 
   }else if(role == "3"){
@@ -68,17 +83,28 @@ export class HeaderComponent implements OnInit {
     this.procurement = true;
     this.showMarketer = false;
     this.showprodManager = false;
-    this.showprodManagerandQuality = true
+    this.showprodManagerandQuality = true;
+    this.showReg = false
+
+  }else if(role == "6"){
+    this.show = true;
+    this.procurement = false;
+    this.showMarketer = false;
+    this.showprodManager = false;
+    this.showprodManagerandQuality = false;
+    this.showReg = false;
+    
+
   }
 }
 
 
 
-  logOut(){
-    console.log("hello")
-    localStorage.removeItem('role');
-    localStorage.removeItem('token')
-    this.router.navigate(['Dashboard/login']);
-  }
+logOut(){
+  localStorage.removeItem('role');
+  localStorage.removeItem('token')
+  localStorage.removeItem('user')
+  this.router.navigate(['Dashboard/login']);
+}
 
 }

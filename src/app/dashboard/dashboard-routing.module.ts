@@ -50,8 +50,6 @@ const routes: Routes = [
         data: {
           role: ["1"]
         }
-
-
       },
       {
         path: 'sales-report',
@@ -80,14 +78,18 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, HasRoleGuardGuard],
+        data: {
+          role: ["1", "5"]
+        }
       },
       {
         path: 'customer-transactions',
         component: CustomerTransactionsComponent,
         canActivate: [AuthGuard],
-
-
+        data: {
+          role: ["1", "5"]
+        }
       },
       {
         path: 'customers',
@@ -106,8 +108,6 @@ const routes: Routes = [
         data: {
           role: ["1", "5"]
         }
-
-
       },
       {
         path: 'procurements',

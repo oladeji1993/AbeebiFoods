@@ -3,7 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/Services/alert/alert.service';
 import { MustMatch } from 'src/app/Services/must-match-validator';
-import { AuthService } from './../../Services/auth/auth.service'
+import { AuthService } from './../../Services/auth/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: 'app-register',
@@ -20,8 +22,8 @@ export class RegisterComponent implements OnInit {
     private router: Router,   
     public fb: FormBuilder,
     private authService: AuthService,
-    private alert: AlertService
-
+    private alert: AlertService,
+    private spinner: NgxSpinnerService,
 
   ) { }
 
@@ -63,16 +65,27 @@ export class RegisterComponent implements OnInit {
         password
       }
       this.authService.registerUser(data).subscribe((resp:any) =>{
+        this.spinner.show()
         if(resp.status === 401){
           this.alert.showError(resp.message, 'Error');
-          return
+          this.spinner.hide()
+          return;
         }
+        this.spinner.hide()
         this.alert.showSuccess(resp.message, 'Success');
         this.registerForm.reset();
-        console.log(resp)
+        this.formReset(this.registerForm)
       })
     }
   }
+
+
+formReset(form:any) {
+    form.reset();
+    Object.keys(form.controls).forEach(key => {
+      form.get(key).setErrors(null) ;
+  });
+}
 
   getRoles(){
     this.authService.getRole().subscribe((response:any) =>{
