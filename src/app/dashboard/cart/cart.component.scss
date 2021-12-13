@@ -27,3 +27,25 @@ table {
     cursor: pointer;
     font-size:20px;
   }
+
+  #content{
+    width:595px;
+    // height: 842px;
+  }
+
+  .details{
+    padding-bottom:90px
+  }
+  #invoice{
+    margin-top:10%
+  }
+
+  .totalprice{
+    padding:10px;
+    font-size:20px;
+  }
+
+  .action-btn{
+    display:flex;
+    justify-content:space-between;
+  }

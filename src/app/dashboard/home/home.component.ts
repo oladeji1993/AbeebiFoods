@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
   getOrders(){
       this.order.getOrders().subscribe((resp:any)=>{
-      this.allSales = resp.data.totalQty
+      this.allSales = resp.data.totalSales
     })
   }
 

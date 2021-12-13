@@ -98,8 +98,6 @@ export class HeaderComponent implements OnInit {
   }
 }
 
-
-
 logOut(){
   localStorage.removeItem('role');
   localStorage.removeItem('token')

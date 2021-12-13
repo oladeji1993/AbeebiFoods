@@ -29,8 +29,50 @@
             </table>
     
             <div style="display: flex; margin-top: 1%; float: right;">
-                <div> <button type="button" style="font-weight: 500;" class="btn btn-success" (click)="addOrder()">Order</button></div>
+                <div class="action-btn">
+                    <div><button type="button" style="font-weight: 500;" class="btn btn-success" (click)="addOrder()">Order</button></div>
+                </div>
+
             </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="invoice">
+        <h1>Generate Invoice</h1>
+        <div id="content" #content>
+            <div class="details">
+                <h2>Abeebi Foods Invoice</h2>
+                <p>Name: {{name}} </p>
+            </div>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Total Price</th>
+                    <th>Quantity</th>
+                    <!-- <th>Balance to pay</th> -->
+                </tr>
+                <tr *ngFor="let cart of availableCartItems">
+                    <td>{{cart.productname}}</td>
+                    <td>{{cart.productprice}}</td>
+                    <td style="text-align: center !important;">
+                        <div class="col-md-3" style="padding:0px !important">
+                            <div> 
+                                  <div>{{cart.quantity}}</div>
+                            </div>
+                        </div>
+                    </td>   
+                    <!-- <td>{{cart.tobalance}}</td> -->
+                </tr>
+            </table>
+            <div class="totalprice">Total payable amount: # {{totalBill}}</div>
+            
+        </div>
+        <div>
+            <div class="action-btn">
+                <div>
+                    <button type="button" style="font-weight: 500;" class="btn btn-success" (click)="download()">Download Invoice</button></div>
+                </div>
         </div>
     </div>
 </section>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 import { AuthService } from './auth/auth.service';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { AuthService } from './auth/auth.service';
 })
 export class HasRoleGuardGuard implements CanActivate {
 
-  constructor(){
+  constructor(private router: Router){
 
   }
 
@@ -19,10 +20,13 @@ export class HasRoleGuardGuard implements CanActivate {
   }
 
   private isAuthorised(route: ActivatedRouteSnapshot): boolean {
-    const localRoles = ['1','2','3','4','5']
+    const localRoles = localStorage.getItem("role")
     const expectedRoles = route.data.role;
-    const matchRoute = localRoles.findIndex(role => expectedRoles.indexOf(role) !== -1);
-    return matchRoute < 0 ? false : true
+    if(expectedRoles.includes(localRoles)) {
+      return true;
+    }
+    this.router.navigate(['Dashboard/home']);
+    return false;
   }
   
 }

@@ -12,7 +12,7 @@ export class NavComponent implements OnInit {
   showReg = true
   showMarketer = true;
   procurement = true;
-  showprodManager = true;
+  // showprodManager = true;
   showprodManagerandQuality = true
 
   constructor(
@@ -30,7 +30,7 @@ export class NavComponent implements OnInit {
       this.showReg = false;
       this.procurement = true;
       this.showMarketer = false;
-      this.showprodManager = false;
+      // this.showprodManager = false;
       this.showprodManagerandQuality = false
 
 
@@ -39,12 +39,12 @@ export class NavComponent implements OnInit {
       this.showReg = true;
       this.showMarketer = true;
       this.procurement = true;
-      this.showprodManager = true
+      // this.showprodManager = true
     }else if(role == "5"){
       this.show = false;
       this.procurement = false;
       this.showMarketer = true;
-      this.showprodManager = false;
+      // this.showprodManager = false;
       this.showprodManagerandQuality = false
       this.showReg = false;
 
@@ -54,7 +54,7 @@ export class NavComponent implements OnInit {
     this.show = false;
     this.procurement = false;
     this.showMarketer = false;
-    this.showprodManager = true;
+    // this.showprodManager = true;
     this.showprodManagerandQuality = true;
     this.showReg = false;
 
@@ -64,7 +64,7 @@ export class NavComponent implements OnInit {
     this.show = false;
     this.procurement = true;
     this.showMarketer = false;
-    this.showprodManager = false;
+    // this.showprodManager = false;
     this.showprodManagerandQuality = true;
     this.showReg = false;
 
@@ -73,7 +73,7 @@ export class NavComponent implements OnInit {
     this.show = true;
     this.procurement = false;
     this.showMarketer = false;
-    this.showprodManager = false;
+    // this.showprodManager = false;
     this.showprodManagerandQuality = false;
     this.showReg = false;
 

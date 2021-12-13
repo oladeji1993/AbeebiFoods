@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core'; 
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/Services/alert/alert.service';
 import { OrderService } from 'src/app/Services/order/order.service';
+import { jsPDF } from 'jspdf' 
 
 
 @Component({
@@ -11,8 +12,12 @@ import { OrderService } from 'src/app/Services/order/order.service';
 })
 export class CartComponent implements OnInit {
 
+  @ViewChild('content', {static: false}) el!: ElementRef;
+
   availableCartItems: any = [];
   retrivedCartItems: any = [];
+  totalBill: any
+  name:any
 
 
   constructor(
@@ -31,6 +36,12 @@ export class CartComponent implements OnInit {
   getCartItems(){
     this.retrivedCartItems = localStorage.getItem("cartItems");
     this.availableCartItems = JSON.parse(this.retrivedCartItems)
+    this.name = this.availableCartItems[0].customername
+    this.totalBill = 0;
+
+    for(let i = 0; i < this.availableCartItems.length; i++){
+      this.totalBill += parseInt(this.availableCartItems[i].productprice);
+    }
   }
 
   back(){
@@ -80,6 +91,20 @@ export class CartComponent implements OnInit {
     }, err =>{
       this.alert.showError(err, "Error")
     })
+  }
+
+
+  download(){
+    let pdf = new jsPDF('p','pt','a4');
+    pdf.html(this.el.nativeElement, {
+      callback: (pdf) => {
+        pdf.save("invoice.pdf");
+      }
+    })
+  }
+
+  parse(value: string) {
+    return parseInt(value);
   }
 
 }

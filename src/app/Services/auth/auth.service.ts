@@ -36,8 +36,8 @@ export class AuthService {
 
   IsLoggedIn(){
     let bool: boolean;
-    const token = localStorage.getItem('token')
-    const role = localStorage.getItem('role')
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
     if(token && role) {
       bool = true;
     } else {
@@ -53,7 +53,7 @@ export class AuthService {
   
     if(token && role == "1") {
       bool = true;
-    }else if(token && role == "2" || role == "5"){
+    }else if(token && role == "2"){
       bool = true;
     } else {
       bool = false;

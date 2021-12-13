@@ -13,7 +13,6 @@ import { ProcurementsComponent } from './procurements/procurements.component';
 import { LoginComponent } from '../components/login/login.component';
 import { AuthGuard } from '../Services/auth.guard';
 import { HasRoleGuardGuard } from '../Services/has-role-guard.guard';
-import { IsLoggedIn } from '../shared/utilities/is-logged-in';
 import { CartComponent } from './cart/cart.component';
 import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
 
@@ -32,14 +31,13 @@ const routes: Routes = [
           path: 'home',
           component: HomeComponent,
           canActivate: [AuthGuard],
-          // resolve: [IsLoggedIn],
         },
       {
         path: 'transactions',
         component: TransactionComponent,
         canActivate: [AuthGuard, HasRoleGuardGuard],
         data: {
-          role: ["1"]
+          role: ["1", "6"]
         }
 
       },
@@ -64,7 +62,7 @@ const routes: Routes = [
         component: PaymentReportsComponent,
         canActivate: [AuthGuard, HasRoleGuardGuard],
         data: {
-          role: ["1"]
+          role: ["1", "6"]
         },
       },
       {
@@ -72,7 +70,7 @@ const routes: Routes = [
         component: StocksComponent,
         canActivate: [AuthGuard, HasRoleGuardGuard],
         data: {
-          role: ["1", "5"]
+          role: ["1", "3", "4"]
         }
       },
       {
@@ -114,7 +112,7 @@ const routes: Routes = [
         component: ProcurementsComponent,
         canActivate: [AuthGuard, HasRoleGuardGuard],
         data: {
-          role: ['1', '2']
+          role: ['1', '2', "3"]
         }
       }
     ]
