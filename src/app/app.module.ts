@@ -58,11 +58,11 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
       provide : LocationStrategy , 
       useClass: HashLocationStrategy
     },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorInterceptor,
-      multi: true
-    }
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: InterceptorInterceptor,
+    //   multi: true
+    // }
   ],
   bootstrap: [AppComponent]
 })

@@ -34,6 +34,7 @@ export class SalesReportComponent implements OnInit {
     this.orderService.getOrders().subscribe((data:any)=>{
       this. totalQuantity = data.data.totalQty
       this.allOrders = data.data.results;
+      this.loader = false
     })
   }
   
@@ -57,7 +58,8 @@ export class SalesReportComponent implements OnInit {
 
   getAllProduct(){
     this.product.getProducts().subscribe((response:any) => {
-      this.allProducts = response.data
+      this.allProducts = response.data;
+      this.loader = false
     })
   }
 
