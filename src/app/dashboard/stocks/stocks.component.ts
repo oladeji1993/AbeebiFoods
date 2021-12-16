@@ -16,6 +16,7 @@ export class StocksComponent implements OnInit {
   allProductDetails!: any[];
   showButton = false;
   showDelete = false;
+  loader = true
 
   constructor(
     public dialog: MatDialog,
@@ -79,6 +80,7 @@ export class StocksComponent implements OnInit {
   productDetails(){
     this.product.getPackSize().subscribe((resp:any) =>{
       this.allProductDetails = resp.data.results
+      this.loader = false
     })
   }
 

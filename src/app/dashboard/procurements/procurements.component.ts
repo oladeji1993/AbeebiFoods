@@ -10,7 +10,8 @@ import { ProcurementService } from 'src/app/Services/procurement/procurement.ser
 export class ProcurementsComponent implements OnInit {
 
   p: number = 1;
-  allProcurements: any
+  allProcurements: any;
+  loader = true
   // procurementParams:any
   // title:any
 
@@ -36,9 +37,8 @@ export class ProcurementsComponent implements OnInit {
   getAllProcurements(){
     this.procurementService.getProcurements().subscribe((response:any) =>{
       this.allProcurements = response.data;
-      // const date = response.data.procurementdate
-      // date.toLocaleDateString({ year: 'numeric', month: '2-digit', day: '2-digit' })
-      // console.log(date)
+      this.loader = false;
+
     })
   }
 }

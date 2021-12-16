@@ -12,7 +12,7 @@ export class OrderService {
 
 
  
-  Url = "http://localhost:3000/api";
+  Url = "https://abeebibackendproject.themdotweb.com/api";
 
   constructor(
     private http : HttpClient,

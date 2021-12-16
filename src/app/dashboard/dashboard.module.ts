@@ -25,6 +25,8 @@ import { AuthGuard } from '../Services/auth.guard';
 import { CartComponent } from './cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CustomerTransactionsComponent } from './customer-transactions/customer-transactions.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 
 
@@ -56,7 +58,9 @@ import { CustomerTransactionsComponent } from './customer-transactions/customer-
     MatDialogModule,
     NgxSpinnerModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSkeletonLoaderModule,
+
   ],
   providers: [
     IsLoggedIn,

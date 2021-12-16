@@ -51,6 +51,9 @@
                         <div>Single Product Quantity sold: <span>{{singleQty || 0}}</span></div>
                     </div>
                 </div>
+                <div>
+                    <ngx-skeleton-loader   [theme]="{'height.px': 50}" count="10" appearance="line" *ngIf="loader"></ngx-skeleton-loader>
+                </div>
             </div>
         </div> 
     </div>

@@ -20,6 +20,9 @@ import { IsLoggedIn } from './shared/utilities/is-logged-in';
 import { AuthGuard } from './Services/auth.guard';
 import { CartComponent } from './shared/modal/cart/cart.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { HashLocationStrategy, LocationStrategy  } from '@angular/common';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 
 @NgModule({
@@ -42,6 +45,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     NgxSpinnerModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxSkeletonLoaderModule,
     ToastrModule.forRoot(), // ToastrModule added
 
   ],
@@ -50,6 +54,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ReactiveFormsModule,
     IsLoggedIn,
     AuthGuard,
+    {
+      provide : LocationStrategy , 
+      useClass: HashLocationStrategy
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorInterceptor,

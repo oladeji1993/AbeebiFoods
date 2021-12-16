@@ -8,9 +8,9 @@ import { Router } from '@angular/router';
 export class AuthService {
 
 
-  private _loginUrl = "http://localhost:3000/api/users/login";
-  private _roleUrl = "http://localhost:3000/api/users";
-  private _registerUrl = "http://localhost:3000/api/users";
+  private _loginUrl = "https://abeebibackendproject.themdotweb.com/api/users/login";
+  private _roleUrl = "https://abeebibackendproject.themdotweb.com/api/users";
+  private _registerUrl = "https://abeebibackendproject.themdotweb.com/api/users";
   token: any
   user: any
 

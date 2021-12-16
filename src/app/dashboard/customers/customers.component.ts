@@ -14,7 +14,8 @@ export class CustomersComponent implements OnInit {
   p: number = 1;
   data: any;
   allCustomers: any;
-  showDeleteBtn = false
+  showDeleteBtn = false;
+  loader = true;
 
   constructor(
     private modalService: ModalService,
@@ -40,7 +41,8 @@ export class CustomersComponent implements OnInit {
 
   getAllCustomers(){
     this.customerService.getCustomers().subscribe((response:any) => {
-      this.allCustomers = response.data
+      this.allCustomers = response.data;
+      this.loader = false
     })
   }
 

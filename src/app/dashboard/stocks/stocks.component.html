@@ -62,6 +62,9 @@
                             <pagination-controls (pageChange)="p = $event"></pagination-controls>
                     </table>
                 </div>
+                <div>
+                    <ngx-skeleton-loader   [theme]="{'height.px': 50}" count="10" appearance="line" *ngIf="loader"></ngx-skeleton-loader>
+                </div>
             </div>
         </div> 
     </div>

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
-  _productUrl = "http://localhost:3000/api";
+  _productUrl = "https://abeebibackendproject.themdotweb.com/api";
 
   constructor(
     private http : HttpClient,

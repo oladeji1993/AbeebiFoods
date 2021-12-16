@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class CustomerService {
 
-  Url = "http://localhost:3000/api";
+  Url = "https://abeebibackendproject.themdotweb.com/api";
 
   constructor(
     private http : HttpClient,
@@ -25,7 +25,7 @@ export class CustomerService {
   }
 
   deleteCustomer(id:any){
-    return this.http.delete(`${this.Url}/customer/`+id);
+    return this.http.delete(`${this.Url}/customer`+id);
   }
 
   updateCustomer(data:any){

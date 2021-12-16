@@ -9,6 +9,7 @@ import { PaymentService } from 'src/app/Services/payment/payment.service';
 export class PaymentReportsComponent implements OnInit {
   p: number = 1;
   allPayment! : any
+  loader = true
 
   constructor(
     private payment: PaymentService,
@@ -20,8 +21,8 @@ export class PaymentReportsComponent implements OnInit {
 
   getPayments(){
     this.payment.getPayments().subscribe((data:any)=>{
-      console.log(data)
-      this.allPayment = data.data
+      this.allPayment = data.data;
+      this.loader = false;
     })
   }
 
