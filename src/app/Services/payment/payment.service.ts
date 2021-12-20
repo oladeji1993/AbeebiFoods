@@ -13,18 +13,14 @@ export class PaymentService {
   ) { }
 
   getPayments(){
-    return this.http.get(`${this.Url}/payment`);
+    return this.http.get(`${this.Url}/payment/fetch`);
   }
 
   addPayment(user:any){
-    return this.http.post(`${this.Url}/payment`, user);
+    return this.http.post(`${this.Url}/payment/add`, user);
   }
 
   deletePayment(id:any){
-    return this.http.delete(`${this.Url}/payment`+id);
+    return this.http.delete(`${this.Url}/payment/delete/`+id);
   }
-
-  // updateCustomer(data:any){
-  //   return this.http.patch(`${this.Url}/customer`, data);
-  // }
 }

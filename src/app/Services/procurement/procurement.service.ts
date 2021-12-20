@@ -13,10 +13,10 @@ export class ProcurementService {
   ) { }
 
   getProcurements(){
-    return this.http.get(`${this.Url}/procurement`);
+    return this.http.get(`${this.Url}/procurement/fetch`);
   }
 
   addProcurements(user:any){
-    return this.http.post(`${this.Url}/procurement`, user);
+    return this.http.post(`${this.Url}/procurement/add`, user);
   }
 }

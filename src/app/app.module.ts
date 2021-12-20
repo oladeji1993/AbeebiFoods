@@ -9,7 +9,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { InterceptorInterceptor } from './Services/auth/interceptor.interceptor';
 import { AddProductComponent } from './shared/modal/add-product/add-product.component';
 import { AddPackSizeComponent } from './shared/modal/add-pack-size/add-pack-size.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -58,11 +57,6 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
       provide : LocationStrategy , 
       useClass: HashLocationStrategy
     },
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: InterceptorInterceptor,
-    //   multi: true
-    // }
   ],
   bootstrap: [AppComponent]
 })

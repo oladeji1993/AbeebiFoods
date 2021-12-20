@@ -13,34 +13,34 @@ export class ProductService {
   ) { }
 
   getProducts(){
-    return this.http.get(`${this._productUrl}/products`);
+    return this.http.get(`${this._productUrl}/products/fetch`);
   }
 
   getReport(product:any){
-    return this.http.post(`${this._productUrl}/report`, product);
+    return this.http.post(`${this._productUrl}/report/add`, product);
   }
 
 
   addProduct(user:any){
-    return this.http.post(`${this._productUrl}/products`, user);
+    return this.http.post(`${this._productUrl}/products/add`, user);
   }
   addPackSize(user:any){
-    return this.http.post(`${this._productUrl}/createPacksize`, user);
+    return this.http.post(`${this._productUrl}/createPacksize/packsize`, user);
   }
 
   getPackSize(){
-    return this.http.get(`${this._productUrl}/createPacksize`);
+    return this.http.get(`${this._productUrl}/createPacksize/get`);
   }
 
   updatePackSize(data:any){
-    return this.http.patch(`${this._productUrl}/createPacksize`, data);
+    return this.http.patch(`${this._productUrl}/createPacksize/patch`, data);
   }
 
   deletePackSize(id:any){
-    return this.http.delete(`${this._productUrl}/createPacksize/`+id);
+    return this.http.delete(`${this._productUrl}/createPacksize/delete`+id);
   }
 
   updateStatus(data:any){
-    return this.http.patch(`${this._productUrl}/products`, data);
+    return this.http.patch(`${this._productUrl}/products/update`, data);
   }
 }

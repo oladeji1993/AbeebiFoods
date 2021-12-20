@@ -75,6 +75,7 @@ export class CustomersComponent implements OnInit {
   }
 
 
+
   showDelete(){
     const show = localStorage.getItem("role");
     if(show == "1"){

@@ -13,23 +13,23 @@ export class CustomerService {
   ) { }
 
   getCustomers(){
-    return this.http.get(`${this.Url}/customer`);
+    return this.http.get(`${this.Url}/customer/fetch`);
   }
 
   addCustomer(user:any){
-    return this.http.post(`${this.Url}/customer`, user);
+    return this.http.post(`${this.Url}/customer/add`, user);
   }
 
   fetchCustomerTransations(user:any){
-    return this.http.post(`${this.Url}/transaction`, user);
+    return this.http.post(`${this.Url}/transaction/add`, user);
   }
 
   deleteCustomer(id:any){
-    return this.http.delete(`${this.Url}/customer`+id);
+    return this.http.delete(`${this.Url}/customer/delete/`+id);
   }
 
   updateCustomer(data:any){
-    return this.http.patch(`${this.Url}/customer`, data);
+    return this.http.patch(`${this.Url}/customer/patch`, data);
   }
 
 }

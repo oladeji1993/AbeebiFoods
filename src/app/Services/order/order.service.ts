@@ -19,19 +19,19 @@ export class OrderService {
   ) { }
 
   getOrders(){
-    return this.http.get(`${this.Url}/order`);
+    return this.http.get(`${this.Url}/order/fetch`);
   }
 
   addOrder(user:any){
-    return this.http.post(`${this.Url}/order`, user);
+    return this.http.post(`${this.Url}/order/add`, user);
   }
 
   showDetails(user:any){
-    return this.http.post(`${this.Url}/paymentID`, user);
+    return this.http.post(`${this.Url}/paymentID/addID`, user);
   }
 
   updateOrder(user:any){
-    return this.http.patch(`${this.Url}/order`, user);
+    return this.http.patch(`${this.Url}/order/editOrder`, user);
   }
 
 }
