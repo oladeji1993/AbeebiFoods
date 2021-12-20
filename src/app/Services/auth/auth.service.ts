@@ -6,10 +6,11 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
- 
-  private _loginUrl = "http://localhost:3000/test";
-  private _roleUrl = "https://abeebibackendproject.themdotweb.com/api/users";
-  private _registerUrl = "https://abeebibackendproject.themdotweb.com/api/users";
+
+
+  private _loginUrl = "https://abeebibackendproject.themdotweb.com/api/users/login";
+  private _roleUrl = "https://abeebibackendproject.themdotweb.com/api/users/fetchrole";
+  private _registerUrl = "https://abeebibackendproject.themdotweb.com/api/users/add";
   token: any
   user: any
 

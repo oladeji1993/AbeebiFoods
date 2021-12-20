@@ -36,7 +36,7 @@ export class CartComponent implements OnInit {
   getCartItems(){
     this.retrivedCartItems = localStorage.getItem("cartItems");
     this.availableCartItems = JSON.parse(this.retrivedCartItems)
-    this.name = this.availableCartItems[0].customername
+    this.name = this.availableCartItems[0]?.customername
     this.totalBill = 0;
 
     for(let i = 0; i < this.availableCartItems.length; i++){

@@ -27,7 +27,7 @@ export class OrderService {
   }
 
   showDetails(user:any){
-    return this.http.post(`${this.Url}/paymentID/addID`, user);
+    return this.http.post(`${this.Url}/paymentID/add`, user);
   }
 
   updateOrder(user:any){
